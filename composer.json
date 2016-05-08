@@ -1,0 +1,27 @@
+{
+    "name": "serendipity_hq/php_array_writer",
+    "description": "A class to read and write PHP arrays.",
+    "license": "MIT",
+    "keywords": ["array"],
+    "authors": [
+        {
+            "name": "Adamo Aerendir Crespi",
+            "email": "hello@aerendir.me"
+        }
+    ],
+    "require": {
+        "php": "^5.4|^7.0",
+        "symfony/property-access": "*"
+    },
+    "require-dev": {
+        "codeclimate/php-test-reporter": "dev-master",
+        "fabpot/php-cs-fixer": "*",
+        "phpunit/phpunit": "*"
+    },
+    "autoload": {
+        "psr-4": {
+            "SHQ\\Component\\ArrayWriter\\": "src",
+            "SHQ\\Component\\ArrayWriter\\Tests\\": "tests"
+        }
+    }
+}
