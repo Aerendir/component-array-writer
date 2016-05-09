@@ -1,0 +1,27 @@
+---
+engines:
+    duplication:
+        enabled: true
+        config:
+            languages:
+            - php
+    fixme:
+        enabled: true
+    phpmd:
+        enabled: true
+        checks:
+            Design/TooManyPublicMethods:
+                enabled: false
+            CleanCode/StaticAccess:
+                enabled: false
+            Naming/ShortMethodName:
+                enabled: false
+            Naming/ShortVariable:
+                enabled: false
+            CleanCode/ElseExpression:
+                enabled: false
+ratings:
+    paths:
+    - "**.php"
+exclude_paths:
+    - tests/
