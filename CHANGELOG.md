@@ -1,4 +1,12 @@
-## 1.0.2
+## 1.0.4
+*(2016-05-12)*
+
+#### Bugfixes
+* Now `cp` can copy to the root of the array.
+
+---
+
+## 1.0.3
 *(2016-05-12)*
 
 #### Features
