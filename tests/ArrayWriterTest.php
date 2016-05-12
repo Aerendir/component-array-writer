@@ -257,6 +257,46 @@ class ArrayWriterTest extends \PHPUnit_Framework_TestCase
         $this->resource->edit($testArray, '[non-existent]', ['value 1', 'value 2']);
     }
     
+    public function testMerge()
+    {
+        $test = [
+            'level1' => [
+                'value 1.1', 'value 1.2', 'value 1.3'
+            ],
+            'level2' => [
+                'key1' => 'value 2.1', 'value 2.2', 'value 2.3'
+            ]
+        ];
+        $result = [
+            'level1' => [
+                'value 1.1', 'value 1.2', 'value 1.3'
+            ],
+            'key1' => 'value 2.1',
+            'value 2.2',
+            'value 2.3'
+        ];
+        $this->resource->merge($test, '[level2]', '[]');
+        $this->assertSame($test, $result);
+    }
+
+    public function testMergeCanHandleStrings()
+    {
+        $test = [
+            'level1' => [
+                'value 1.1', 'value 1.2', 'value 1.3'
+            ],
+            'level2' => 'value 2.1'
+        ];
+        $result = [
+            'level1' => [
+                'value 1.1', 'value 1.2', 'value 1.3'
+            ],
+            'value 2.1'
+        ];
+        $this->resource->merge($test, '[level2]', '[]');
+        $this->assertSame($test, $result);
+    }
+    
     public function testMv()
     {
         $testArray = [
@@ -320,6 +360,24 @@ class ArrayWriterTest extends \PHPUnit_Framework_TestCase
             'key1' => 'value 2.1',
             'value 2.2',
             'value 2.3'
+        ];
+        $this->resource->mvUp($test, '[level2]');
+        $this->assertSame($test, $result);
+    }
+
+    public function testMvUpCanHandleStrings()
+    {
+        $test = [
+            'level1' => [
+                'value 1.1', 'value 1.2', 'value 1.3'
+            ],
+            'level2' => 'value 2.1'
+        ];
+        $result = [
+            'level1' => [
+                'value 1.1', 'value 1.2', 'value 1.3'
+            ],
+            'value 2.1'
         ];
         $this->resource->mvUp($test, '[level2]');
         $this->assertSame($test, $result);

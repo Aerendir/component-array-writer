@@ -231,6 +231,24 @@ class ArrayWriter
     }
 
     /**
+     * Merges $from values into $in path.
+     * 
+     * @param array $array
+     * @param $from
+     * @param $in
+     */
+    public function merge(array &$array, $from, $in)
+    {
+        $fromValue = $this->getValue($array, $from);
+        $this->rm($array, $from);
+        $inValue   = $this->getValue($array, $in);
+        
+        $merged = array_merge($this->forceArray($inValue), $this->forceArray($fromValue));
+        
+        $this->edit($array, $in, $merged);
+    }
+    
+    /**
      * Moves an element from $from path to $to path.
      * 
      * If $to path already has a value, it will be overwritten.
@@ -309,7 +327,7 @@ class ArrayWriter
         // Get the values of the up level
         $parentValues = $this->getValue($array, $parentPath);
 
-        $mergedArray = array_merge($parentValues, $values);
+        $mergedArray = array_merge($this->forceArray($parentValues), $this->forceArray($values));
 
         $this->edit($array, $parentPath, $mergedArray);
     }
@@ -378,6 +396,22 @@ class ArrayWriter
         } else {
             $this->edit($array, $path, $value);
         }
+    }
+
+    /**
+     * Forces a value to be an array.
+     * 
+     * @param $value
+     * @return array
+     */
+    private function forceArray($value)
+    {
+        // If the $value is not an array...
+        if (false === is_array($value))
+            // Make it an array
+            return [$value];
+        
+        return $value;
     }
     
     /**
