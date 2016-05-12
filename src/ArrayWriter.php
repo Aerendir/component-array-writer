@@ -9,6 +9,7 @@ namespace SHQ\Component\ArrayWriter;
 use Symfony\Component\PropertyAccess\Exception\AccessException;
 use Symfony\Component\PropertyAccess\Exception\NoSuchIndexException;
 use Symfony\Component\PropertyAccess\PropertyAccess;
+use Symfony\Component\PropertyAccess\PropertyPath;
 use Symfony\Component\PropertyAccess\PropertyPathBuilder;
 
 /**
@@ -46,7 +47,7 @@ class ArrayWriter
     public function getValue(array $array, $path)
     {
         // If the $path value is empty, return the entire array graph
-        if ('' === $path) {
+        if ($this->isRoot($path)) {
             return $array;
         }
 
@@ -89,7 +90,7 @@ class ArrayWriter
      */
     public function isRoot($path)
     {
-        return '[]' === $path || '' === $path;
+        return '[]' === $path || '' === $path || '.' === $path;
     }
     
     /**
@@ -269,6 +270,49 @@ class ArrayWriter
         // Remove the original value
         $this->rm($array, $from);
     }
+
+    /**
+     * Moves a value one level up in the array.
+     *
+     * Example:
+     *
+     *     $array = [
+     *         'level1' => ['value 1.1', 'value 1.2', 'value 1.3'],
+     *         'level2' => ['key1' => 'value 2.1', 'value 2.2', 'value 2.3']
+     *     ];
+     *
+     * is transformed into the array:
+     *
+     *     $array = [
+     *         'level1' => ['value 1.1', 'value 1.2', 'value 1.3'],
+     *         'key' => 'value 2.1',
+     *         1 => 'value 2.2',
+     *         2 => 'value 2.3'
+     *     ];
+     *
+     * @param array $array
+     * @param $path
+     */
+    public function mvUp(array &$array, $path)
+    {
+        // Build the path object
+        $pathObject = new PropertyPath($path);
+
+        // get the values to move one level up
+        $values = $this->pa->getValue($array, $path);
+
+        // Remove the key to move one level up
+        $this->rm($array, $path);
+        
+        $parentPath = $pathObject->getParent() === null ? '[]' : $pathObject->getParent();
+        
+        // Get the values of the up level
+        $parentValues = $this->getValue($array, $parentPath);
+
+        $mergedArray = array_merge($parentValues, $values);
+
+        $this->edit($array, $parentPath, $mergedArray);
+    }
     
     /**
      * Removes an element from the array.
@@ -294,7 +338,7 @@ class ArrayWriter
             unset($parentLevel[$node]);
         }
     }
-
+    
     /**
      * Adds a parent key to the current array.
      *

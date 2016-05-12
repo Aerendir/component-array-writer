@@ -302,6 +302,28 @@ class ArrayWriterTest extends \PHPUnit_Framework_TestCase
         $this->expectException(AccessException::class);
         $this->resource->mvSafe($test, '[level1]', '[level2]');
     }
+
+    public function testMvUp()
+    {
+        $test = [
+            'level1' => [
+                'value 1.1', 'value 1.2', 'value 1.3'
+            ],
+            'level2' => [
+                'key1' => 'value 2.1', 'value 2.2', 'value 2.3'
+            ]
+        ];
+        $result = [
+            'level1' => [
+                'value 1.1', 'value 1.2', 'value 1.3'
+            ],
+            'key1' => 'value 2.1',
+            'value 2.2',
+            'value 2.3'
+        ];
+        $this->resource->mvUp($test, '[level2]');
+        $this->assertSame($test, $result);
+    }
     
     public function testRm()
     {
