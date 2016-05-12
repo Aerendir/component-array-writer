@@ -55,6 +55,17 @@ class ArrayWriterTest extends \PHPUnit_Framework_TestCase
         ];
         $this->assertSame(true, $this->resource->isNode($testArray, '[level1]'));
     }
+
+    public function testIsReadable()
+    {
+        $testArray = [
+            'level1' => [
+                'value 1', 'value 2', 'value 3'
+            ]
+        ];
+        $this->assertTrue($this->resource->isReadable($testArray, '[level1]'));
+        $this->assertFalse($this->resource->isReadable($testArray, '[non-existent]'));
+    }
     
     public function testAdd()
     {

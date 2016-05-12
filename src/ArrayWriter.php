@@ -54,7 +54,7 @@ class ArrayWriter
         // null value and a path that doesn't exist at all.
         return $this->pa->getValue($array, $path);
     }
-
+    
     /**
      * Checks if a given path is a node or not.
      *
@@ -67,6 +67,22 @@ class ArrayWriter
         return is_array($this->getValue($array, $path));
     }
 
+    /**
+     * Checks if a path exists in the given array.
+     *
+     * @param array $array
+     * @param $path
+     * @return bool
+     */
+    public function isReadable(array $array, $path)
+    {
+        try {
+            return $this->pa->isReadable($array, $path);
+        } catch (\Exception $e) {
+            return false;
+        }
+    }
+    
     /**
      * @param $path
      * @return bool
