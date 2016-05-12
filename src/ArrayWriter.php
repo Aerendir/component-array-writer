@@ -89,7 +89,7 @@ class ArrayWriter
      */
     public function isRoot($path)
     {
-        return '[]' === $path;
+        return '[]' === $path || '' === $path;
     }
     
     /**
@@ -117,13 +117,14 @@ class ArrayWriter
     /**
      * Adds a value to a node.
      *
-     * The method can recognize if the current value at $toPath is a string: if it is, the methods first transforms the
+     * The method can recognize if the current value at $toPath is a string: if it is, the method first transforms the
      * current value into an array and then adds the new value to this new array, so preserving the already present
      * value.
      * 
      * Passing $propertyForNewValue and $propertyForOldValue it is possible to set the property names of the already
      * present value and of the newly created value.
-     * If these variableas are 
+     * 
+     * If the key doesn't exist, the method simply adds it.
      * 
      * @param array  $array Passed by reference
      * @param string $toPath The location where to add the value taken $fromPath

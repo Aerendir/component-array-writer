@@ -84,6 +84,25 @@ class ArrayWriterTest extends \PHPUnit_Framework_TestCase
         $this->resource->add($testArray, '[level1]', 'ciao');
         $this->assertSame($expected, $testArray);
     }
+    
+    public function testAddCanCreateANewPropertyInTheRoot()
+    {
+        $testArray = [
+            'level1' => [
+                'value 1', 'value 2', 'value 3'
+            ]
+        ];
+
+        $expected = [
+            'level1' => [
+                'value 1', 'value 2', 'value 3'
+            ],
+            'level2' => 'ciao'
+        ];
+
+        $this->resource->add($testArray, '', 'ciao', 'level2');
+        $this->assertSame($expected, $testArray);
+    }
 
     public function testAddPreservesAlreadyExistentValueInToPath()
     {
