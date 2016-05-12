@@ -182,8 +182,15 @@ class ArrayWriter
         }
 
         // Get the value to move
-        $value = $this->pa->getValue($array, $from);
+        $value = $this->getValue($array, $from);
 
+        // Check if $to is the root and if it is
+        if ($this->isRoot($to)) {
+            // Merge the value in the passed $array
+            $array = array_merge($array, $this->forceArray($value));
+            return;
+        }
+        
         // Do the copy
         $this->pa->setValue($array, $to, $value);
     }

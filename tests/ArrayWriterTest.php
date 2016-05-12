@@ -169,6 +169,31 @@ class ArrayWriterTest extends \PHPUnit_Framework_TestCase
         $this->assertSame($result, $testArray);
     }
 
+    public function testCpToRoot()
+    {
+        $test = [
+            'level1' => [
+                'value 1.1', 'value 1.2', 'value 1.3'
+            ],
+            'level2' => [
+                'key1' => 'value 2.1', 'value 2.2', 'value 2.3'
+            ]
+        ];
+        $result = [
+            'level1' => [
+                'value 1.1', 'value 1.2', 'value 1.3'
+            ],
+            'level2' => [
+                'key1' => 'value 2.1', 'value 2.2', 'value 2.3'
+            ],
+            'key1' => 'value 2.1',
+            'value 2.2',
+            'value 2.3'
+        ];
+        $this->resource->cp($test, '[level2]', '[]');
+        $this->assertSame($result, $test);
+    }
+    
     public function testCpThrowsExceptionIfFromIsNotReadable()
     {
         $testArray = [
@@ -311,6 +336,28 @@ class ArrayWriterTest extends \PHPUnit_Framework_TestCase
         ];
         $this->resource->mv($testArray, '[level1]', '[level2]');
         $this->assertSame($result, $testArray);
+    }
+
+    public function testMvToRoot()
+    {
+        $test = [
+            'level1' => [
+                'value 1.1', 'value 1.2', 'value 1.3'
+            ],
+            'level2' => [
+                'key1' => 'value 2.1', 'value 2.2', 'value 2.3'
+            ]
+        ];
+        $result = [
+            'level1' => [
+                'value 1.1', 'value 1.2', 'value 1.3'
+            ],
+            'key1' => 'value 2.1',
+            'value 2.2',
+            'value 2.3'
+        ];
+        $this->resource->mv($test, '[level2]', '[]');
+        $this->assertSame($result, $test);
     }
 
     public function testMvSafe()
