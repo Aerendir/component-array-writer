@@ -481,4 +481,14 @@ class ArrayWriterTest extends \PHPUnit_Framework_TestCase
         $this->resource->wrap($testArray, '', 'wrapper');
         $this->assertSame($result, $testArray);
     }
+    
+    public function testPathize()
+    {
+        $test = 'path';
+        $expected = '[path]';
+        
+        $result = ArrayWriter::pathize($test);
+        
+        $this->assertSame($expected, $result);
+    }
 }

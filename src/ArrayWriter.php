@@ -406,6 +406,17 @@ class ArrayWriter
     }
 
     /**
+     * Transforms a GraphObject name into a PropertyAccess path.
+     *
+     * @param string|integer $string Can be a position or an object name
+     * @return string
+     */
+    public static function pathize($string)
+    {
+        return '[' . $string . ']';
+    }
+
+    /**
      * Forces a value to be an array.
      * 
      * @param $value
