@@ -57,6 +57,34 @@ class ArrayWriter
     }
 
     /**
+     * @param array $array
+     * @param $key
+     * @return bool
+     */
+    public function keyExistsNested(array $array, $key)
+    {
+        // Only start deeply search if the needle isn't in the first level
+        if (key_exists($key, $array)) {
+            return true;
+        }
+
+        // Start the deep search
+        foreach ($array as $subValue) {
+            // If the sub value is an array, deeply search in it
+            if (is_array($subValue)) {
+                // If the value was found
+                if (true === $this->keyExistsNested($subValue, $key)) {
+                    // OK: return true
+                    return true;
+                }
+            }
+        }
+
+        // The value were not found
+        return false;
+    }
+
+    /**
      * Checks if a given path is a node or not.
      *
      * @param array $array

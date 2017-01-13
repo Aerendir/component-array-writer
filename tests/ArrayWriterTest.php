@@ -87,6 +87,27 @@ class ArrayWriterTest extends \PHPUnit_Framework_TestCase
         self::assertTrue($this->resource->inArrayNested($testArray, 'a really nested value'));
     }
 
+    public function testArrayKeyExistsNested()
+    {
+        $testArray = [
+            'level_1' => 'a simple value',
+            'level_2' => [
+                'a nested value'
+            ],
+            'level_3' => [
+                'nested' => [
+                    'a really nested value',
+                    'really_nested' => 'hello! :)'
+                ]
+            ]
+        ];
+
+        self::assertFalse($this->resource->keyExistsNested($testArray, 'non_existent_key'));
+        self::assertTrue($this->resource->keyExistsNested($testArray, 'level_1'));
+        self::assertTrue($this->resource->keyExistsNested($testArray, 'nested'));
+        self::assertTrue($this->resource->keyExistsNested($testArray, 'really_nested'));
+    }
+
     public function testAdd()
     {
         $testArray = [
