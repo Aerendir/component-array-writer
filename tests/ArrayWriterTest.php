@@ -16,7 +16,7 @@ class ArrayWriterTest extends \PHPUnit_Framework_TestCase
 {
     /** @var  ArrayWriter $resource */
     private $resource;
-    
+
     /**
      * {@inheritdoc}
      */
@@ -32,8 +32,8 @@ class ArrayWriterTest extends \PHPUnit_Framework_TestCase
                 'value 1', 'value 2', 'value 3'
             ]
         ];
-        
-        $this->assertSame($testArray['level1'], $this->resource->getValue($testArray, '[level1]'));
+
+        self::assertSame($testArray['level1'], $this->resource->getValue($testArray, '[level1]'));
     }
 
     public function testGetValueReturnsEntireArrayIfPathIsEmpty()
@@ -43,7 +43,7 @@ class ArrayWriterTest extends \PHPUnit_Framework_TestCase
                 'value 1', 'value 2', 'value 3'
             ]
         ];
-        $this->assertSame($testArray, $this->resource->getValue($testArray, ''));
+        self::assertSame($testArray, $this->resource->getValue($testArray, ''));
     }
 
     public function testIsNode()
@@ -53,7 +53,7 @@ class ArrayWriterTest extends \PHPUnit_Framework_TestCase
                 'value 1', 'value 2', 'value 3'
             ]
         ];
-        $this->assertSame(true, $this->resource->isNode($testArray, '[level1]'));
+        self::assertSame(true, $this->resource->isNode($testArray, '[level1]'));
     }
 
     public function testIsReadable()
@@ -63,10 +63,30 @@ class ArrayWriterTest extends \PHPUnit_Framework_TestCase
                 'value 1', 'value 2', 'value 3'
             ]
         ];
-        $this->assertTrue($this->resource->isReadable($testArray, '[level1]'));
-        $this->assertFalse($this->resource->isReadable($testArray, '[non-existent]'));
+        self::assertTrue($this->resource->isReadable($testArray, '[level1]'));
+        self::assertFalse($this->resource->isReadable($testArray, '[non-existent]'));
     }
-    
+
+    public function testInArrayNested()
+    {
+        $testArray = [
+            'level_1' => 'a simple value',
+            'level_2' => [
+                'a nested value'
+            ],
+            'level_3' => [
+                'nested_1' => [
+                    'a really nested value'
+                ]
+            ]
+        ];
+
+        self::assertFalse($this->resource->inArrayNested($testArray, 'non existent value'));
+        self::assertTrue($this->resource->inArrayNested($testArray, 'a simple value'));
+        self::assertTrue($this->resource->inArrayNested($testArray, 'a nested value'));
+        self::assertTrue($this->resource->inArrayNested($testArray, 'a really nested value'));
+    }
+
     public function testAdd()
     {
         $testArray = [
@@ -74,17 +94,17 @@ class ArrayWriterTest extends \PHPUnit_Framework_TestCase
                 'value 1', 'value 2', 'value 3'
             ]
         ];
-        
+
         $expected = [
             'level1' => [
                 'value 1', 'value 2', 'value 3', 'ciao'
             ]
         ];
-        
+
         $this->resource->add($testArray, '[level1]', 'ciao');
-        $this->assertSame($expected, $testArray);
+        self::assertSame($expected, $testArray);
     }
-    
+
     public function testAddCanCreateANewPropertyInTheRoot()
     {
         $testArray = [
@@ -101,7 +121,7 @@ class ArrayWriterTest extends \PHPUnit_Framework_TestCase
         ];
 
         $this->resource->add($testArray, '', 'ciao', 'level2');
-        $this->assertSame($expected, $testArray);
+        self::assertSame($expected, $testArray);
     }
 
     public function testAddPreservesAlreadyExistentValueInToPath()
@@ -111,7 +131,7 @@ class ArrayWriterTest extends \PHPUnit_Framework_TestCase
                 'value 1', 'value 2', 'value 3'
             ]
         ];
-        
+
         $expected = [
             'level1' => [
                 0 => [
@@ -123,7 +143,7 @@ class ArrayWriterTest extends \PHPUnit_Framework_TestCase
         ];
 
         $this->resource->add($testArray, '[level1][0]', 'ciao');
-        $this->assertSame($expected, $testArray);
+        self::assertSame($expected, $testArray);
     }
 
     public function testAddCanSetPropertyNameForOldAndNewValues()
@@ -133,7 +153,7 @@ class ArrayWriterTest extends \PHPUnit_Framework_TestCase
                 'value 1', 'value 2', 'value 3'
             ]
         ];
-        
+
         $expected = [
             'level1' => [
                 0 => [
@@ -146,7 +166,7 @@ class ArrayWriterTest extends \PHPUnit_Framework_TestCase
         ];
 
         $this->resource->add($testArray, '[level1][0]', 'ciao', 'NewValue', 'OldValue');
-        $this->assertSame($expected, $testArray);
+        self::assertSame($expected, $testArray);
     }
 
     public function testCp()
@@ -156,7 +176,7 @@ class ArrayWriterTest extends \PHPUnit_Framework_TestCase
                 'value 1', 'value 2', 'value 3'
             ]
         ];
-        
+
         $result = [
             'level1' => [
                 'value 1', 'value 2', 'value 3'
@@ -166,7 +186,7 @@ class ArrayWriterTest extends \PHPUnit_Framework_TestCase
             ]
         ];
         $this->resource->cp($testArray, '[level1]', '[level2]');
-        $this->assertSame($result, $testArray);
+        self::assertSame($result, $testArray);
     }
 
     public function testCpToRoot()
@@ -191,9 +211,9 @@ class ArrayWriterTest extends \PHPUnit_Framework_TestCase
             'value 2.3'
         ];
         $this->resource->cp($test, '[level2]', '[]');
-        $this->assertSame($result, $test);
+        self::assertSame($result, $test);
     }
-    
+
     public function testCpThrowsExceptionIfFromIsNotReadable()
     {
         $testArray = [
@@ -221,9 +241,9 @@ class ArrayWriterTest extends \PHPUnit_Framework_TestCase
             ]
         ];
         $this->resource->cpSafe($testArray, '[level1]', '[level3]');
-        $this->assertSame($result['level1'], $testArray['level3']);
+        self::assertSame($result['level1'], $testArray['level3']);
     }
-    
+
     /**
      * This exception is not testable as the isWrite method ever returns true.
      */
@@ -251,9 +271,9 @@ class ArrayWriterTest extends \PHPUnit_Framework_TestCase
         $result = [
             'value 2.1', 'value 2.2', 'value 2.3'
         ];
-        
+
         $this->resource->edit($test, '[level1]', $result);
-        $this->assertSame($test['level1'], $result);
+        self::assertSame($test['level1'], $result);
     }
 
     public function testEditRecognizeRoot()
@@ -268,7 +288,7 @@ class ArrayWriterTest extends \PHPUnit_Framework_TestCase
         ];
 
         $this->resource->edit($test, '[]', $result);
-        $this->assertSame($test, $result);
+        self::assertSame($test, $result);
     }
 
     public function testEditThrowsExceptionIfPathDoesntExist()
@@ -281,7 +301,7 @@ class ArrayWriterTest extends \PHPUnit_Framework_TestCase
         $this->expectException(AccessException::class);
         $this->resource->edit($testArray, '[non-existent]', ['value 1', 'value 2']);
     }
-    
+
     public function testMerge()
     {
         $test = [
@@ -301,7 +321,7 @@ class ArrayWriterTest extends \PHPUnit_Framework_TestCase
             'value 2.3'
         ];
         $this->resource->merge($test, '[level2]', '[]');
-        $this->assertSame($test, $result);
+        self::assertSame($test, $result);
     }
 
     public function testMergeCanHandleStrings()
@@ -319,9 +339,9 @@ class ArrayWriterTest extends \PHPUnit_Framework_TestCase
             'value 2.1'
         ];
         $this->resource->merge($test, '[level2]', '[]');
-        $this->assertSame($test, $result);
+        self::assertSame($test, $result);
     }
-    
+
     public function testMv()
     {
         $testArray = [
@@ -335,7 +355,7 @@ class ArrayWriterTest extends \PHPUnit_Framework_TestCase
             ]
         ];
         $this->resource->mv($testArray, '[level1]', '[level2]');
-        $this->assertSame($result, $testArray);
+        self::assertSame($result, $testArray);
     }
 
     public function testMvToRoot()
@@ -357,7 +377,7 @@ class ArrayWriterTest extends \PHPUnit_Framework_TestCase
             'value 2.3'
         ];
         $this->resource->mv($test, '[level2]', '[]');
-        $this->assertSame($result, $test);
+        self::assertSame($result, $test);
     }
 
     public function testMvSafe()
@@ -373,7 +393,7 @@ class ArrayWriterTest extends \PHPUnit_Framework_TestCase
             ]
         ];
         $this->resource->mvSafe($testArray, '[level1]', '[level2]');
-        $this->assertSame($result, $testArray);
+        self::assertSame($result, $testArray);
     }
 
     public function testMvSafeThrowsExceptionIfToIsNotWritable()
@@ -409,7 +429,7 @@ class ArrayWriterTest extends \PHPUnit_Framework_TestCase
             'value 2.3'
         ];
         $this->resource->mvUp($test, '[level2]');
-        $this->assertSame($test, $result);
+        self::assertSame($test, $result);
     }
 
     public function testMvUpCanHandleStrings()
@@ -427,9 +447,9 @@ class ArrayWriterTest extends \PHPUnit_Framework_TestCase
             'value 2.1'
         ];
         $this->resource->mvUp($test, '[level2]');
-        $this->assertSame($test, $result);
+        self::assertSame($test, $result);
     }
-    
+
     public function testRm()
     {
         $testArray = [
@@ -439,9 +459,9 @@ class ArrayWriterTest extends \PHPUnit_Framework_TestCase
         ];
         $result = ['level1' => ['value 1', 'value 2']];
         $this->resource->rm($testArray, '[level1][2]');
-        $this->assertSame($result, $testArray);
+        self::assertSame($result, $testArray);
     }
-    
+
     public function testWrap()
     {
         $testArray = [
@@ -449,7 +469,7 @@ class ArrayWriterTest extends \PHPUnit_Framework_TestCase
                 'value 1', 'value 2', 'value 3'
             ]
         ];
-        
+
         $result = [
             'level1' => [
                 'wrapper' => [
@@ -457,9 +477,9 @@ class ArrayWriterTest extends \PHPUnit_Framework_TestCase
                 ]
             ]
         ];
-        
+
         $this->resource->wrap($testArray, '[level1]', 'wrapper');
-        $this->assertSame($result, $testArray);
+        self::assertSame($result, $testArray);
     }
 
     public function testWrapRoot()
@@ -479,16 +499,16 @@ class ArrayWriterTest extends \PHPUnit_Framework_TestCase
         ];
 
         $this->resource->wrap($testArray, '', 'wrapper');
-        $this->assertSame($result, $testArray);
+        self::assertSame($result, $testArray);
     }
-    
+
     public function testPathize()
     {
         $test = 'path';
         $expected = '[path]';
-        
+
         $result = ArrayWriter::pathize($test);
-        
-        $this->assertSame($expected, $result);
+
+        self::assertSame($expected, $result);
     }
 }

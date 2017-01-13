@@ -55,7 +55,7 @@ class ArrayWriter
         // null value and a path that doesn't exist at all.
         return $this->pa->getValue($array, $path);
     }
-    
+
     /**
      * Checks if a given path is a node or not.
      *
@@ -83,7 +83,7 @@ class ArrayWriter
             return false;
         }
     }
-    
+
     /**
      * @param $path
      * @return bool
@@ -92,10 +92,10 @@ class ArrayWriter
     {
         return '[]' === $path || '' === $path || '.' === $path;
     }
-    
+
     /**
      * Returns true if the $path is null, false instead.
-     * 
+     *
      * @param array $array
      * @param $path
      * @return bool
@@ -104,14 +104,42 @@ class ArrayWriter
     {
         if ($this->isRoot($path))
             return false;
-        
+
         try {
             $this->pa->getValue($array, $path);
         } catch (NoSuchIndexException $e) {
             // If the exception is thrown, the value can be written at given $path as it hasn't already a value
             return true;
         }
-        
+
+        return false;
+    }
+
+    /**
+     * @param array $array
+     * @param $value
+     * @return bool
+     */
+    public function inArrayNested(array $array, $value)
+    {
+        // Only start deeply search if the needle isn't in the first level
+        if (in_array($value, $array)) {
+            return true;
+        }
+
+        // Start the deep search
+        foreach ($array as $subValue) {
+            // If the sub value is an array, deeply search in it
+            if (is_array($subValue)) {
+                // If the value was found
+                if (true === $this->inArrayNested($subValue, $value)) {
+                    // OK: return true
+                    return true;
+                }
+            }
+        }
+
+        // The value were not found
         return false;
     }
 
@@ -121,12 +149,12 @@ class ArrayWriter
      * The method can recognize if the current value at $toPath is a string: if it is, the method first transforms the
      * current value into an array and then adds the new value to this new array, so preserving the already present
      * value.
-     * 
+     *
      * Passing $propertyForNewValue and $propertyForOldValue it is possible to set the property names of the already
      * present value and of the newly created value.
-     * 
+     *
      * If the key doesn't exist, the method simply adds it.
-     * 
+     *
      * @param array  $array Passed by reference
      * @param string $toPath The location where to add the value taken $fromPath
      * @param mixed  $value The value to add
@@ -165,13 +193,13 @@ class ArrayWriter
 
     /**
      * Copy a value from $from path to $to path.
-     * 
+     *
      * If the $to path has already a value, it will be overwritten.
      *
      * @param array $array
      * @param $from
      * @param $to
-     * 
+     *
      * @throws AccessException if the $from path is not readable
      */
     public function cp(array &$array, $from, $to)
@@ -190,20 +218,20 @@ class ArrayWriter
             $array = array_merge($array, $this->forceArray($value));
             return;
         }
-        
+
         // Do the copy
         $this->pa->setValue($array, $to, $value);
     }
 
     /**
      * Copy a value from $from path to $to path.
-     * 
+     *
      * If the $to path already has a value, an AccessException is thrown.
      *
      * @param array $array
      * @param $from
      * @param $to
-     * 
+     *
      * @throws AccessException If the $to path already has a value
      */
     public function cpSafe(array &$array, $from, $to)
@@ -212,16 +240,16 @@ class ArrayWriter
         if (false === $this->isWritable($array, $to)) {
             throw new AccessException(sprintf('The $to path "%s" isn\'t writable as it already has a value.', $to));
         }
-        
+
         $this->cp($array, $from, $to);
     }
-    
+
     /**
      * Edits the value at the given path.
      * @param array $array
      * @param string $path
      * @param $value
-     * 
+     *
      * @throws AccessException If the path to edit is not readable
      */
     public function edit(array &$array, $path, $value)
@@ -230,7 +258,7 @@ class ArrayWriter
         if (false === $this->isRoot($path) && false === $this->pa->isReadable($array, $path)) {
             throw new AccessException(sprintf('The path "%s" you are trying to edit isn\'t readable and so cannot be edited.', $path));
         }
-        
+
         if ($this->isRoot($path))
             $array = $value;
         else
@@ -239,7 +267,7 @@ class ArrayWriter
 
     /**
      * Merges $from values into $in path.
-     * 
+     *
      * @param array $array
      * @param $from
      * @param $in
@@ -249,41 +277,41 @@ class ArrayWriter
         $fromValue = $this->getValue($array, $from);
         $this->rm($array, $from);
         $inValue   = $this->getValue($array, $in);
-        
+
         $merged = array_merge($this->forceArray($inValue), $this->forceArray($fromValue));
-        
+
         $this->edit($array, $in, $merged);
     }
-    
+
     /**
      * Moves an element from $from path to $to path.
-     * 
+     *
      * If $to path already has a value, it will be overwritten.
      *
      * @param array $array
      * @param string $from
      * @param string $to
-     * 
+     *
      * @throws AccessException if $from path is not readable.
      */
     public function mv(array &$array, $from, $to)
     {
         // Do the moving
         $this->cp($array, $from, $to);
-        
+
         // Remove the original value
         $this->rm($array, $from);
     }
 
     /**
      * Moves an element from $from path to $to path.
-     * 
+     *
      * If $to path already has a value, an AccessException will be thrown.
      *
      * @param array $array
      * @param string $from
      * @param string $to
-     * 
+     *
      * @throws AccessException if $from path is not readable
      * @throws AccessException if the $to path already has a value
      */
@@ -328,9 +356,9 @@ class ArrayWriter
 
         // Remove the key to move one level up
         $this->rm($array, $path);
-        
+
         $parentPath = $pathObject->getParent() === null ? '[]' : $pathObject->getParent();
-        
+
         // Get the values of the up level
         $parentValues = $this->getValue($array, $parentPath);
 
@@ -338,7 +366,7 @@ class ArrayWriter
 
         $this->edit($array, $parentPath, $mergedArray);
     }
-    
+
     /**
      * Removes an element from the array.
      *
@@ -363,7 +391,7 @@ class ArrayWriter
             unset($parentLevel[$node]);
         }
     }
-    
+
     /**
      * Adds a parent key to the current array.
      *
@@ -384,8 +412,6 @@ class ArrayWriter
      * @param array $array
      * @param string $path
      * @param string $wrapperName
-     * 
-     * @return array
      */
     public function wrap(array &$array, $path, $wrapperName)
     {
@@ -418,7 +444,7 @@ class ArrayWriter
 
     /**
      * Forces a value to be an array.
-     * 
+     *
      * @param $value
      * @return array
      */
@@ -428,13 +454,13 @@ class ArrayWriter
         if (false === is_array($value))
             // Make it an array
             return [$value];
-        
+
         return $value;
     }
-    
+
     /**
      * Removes "[" and "]" from path.
-     * 
+     *
      * @param $path
      * @return string
      */
