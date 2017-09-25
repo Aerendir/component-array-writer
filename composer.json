@@ -10,13 +10,13 @@
         }
     ],
     "require": {
-        "php": "^5.4|^7.0",
-        "symfony/property-access": "*"
+        "php": "^5.4||^7.0||^7.1",
+        "symfony/property-access": "^2.8||^3.0"
     },
     "require-dev": {
         "codeclimate/php-test-reporter": "dev-master",
-        "fabpot/php-cs-fixer": "*",
-        "phpunit/phpunit": "*"
+        "fabpot/php-cs-fixer": "~2",
+        "phpunit/phpunit": "^6"
     },
     "autoload": {
         "psr-4": {
