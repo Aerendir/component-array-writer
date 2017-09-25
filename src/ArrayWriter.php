@@ -51,9 +51,9 @@ class ArrayWriter
      * @param array  $array
      * @param string $path
      *
-     * @return array
+     * @return array|string
      */
-    public function getValue(array $array, $path)
+    public function getValue(array $array, string $path)
     {
         // If the $path value is empty, return the entire array graph
         if ($this->isRoot($path)) {
@@ -73,7 +73,7 @@ class ArrayWriter
      *
      * @return bool
      */
-    public function isNode(array $array, $path)
+    public function isNode(array $array, string $path): bool
     {
         return is_array($this->getValue($array, $path));
     }
@@ -81,12 +81,12 @@ class ArrayWriter
     /**
      * Checks if a path exists in the given array.
      *
-     * @param array $array
-     * @param $path
+     * @param array  $array
+     * @param string $path
      *
      * @return bool
      */
-    public function isReadable(array $array, $path)
+    public function isReadable(array $array, string $path): bool
     {
         try {
             return $this->pa->isReadable($array, $path);
@@ -96,11 +96,11 @@ class ArrayWriter
     }
 
     /**
-     * @param $path
+     * @param string $path
      *
      * @return bool
      */
-    public function isRoot($path)
+    public function isRoot(string $path): bool
     {
         return '[]' === $path || '' === $path || '.' === $path;
     }
@@ -108,12 +108,12 @@ class ArrayWriter
     /**
      * Returns true if the $path is null, false instead.
      *
-     * @param array $array
-     * @param $path
+     * @param array  $array
+     * @param string $path
      *
      * @return bool
      */
-    public function isWritable(array $array, $path)
+    public function isWritable(array $array, string $path): bool
     {
         if ($this->isRoot($path)) {
             return false;
@@ -147,7 +147,7 @@ class ArrayWriter
      * @param string $propertyForNewValue The name to give to the new property
      * @param string $propertyForOldValue The old value is now assigned to a property: this is its property name
      */
-    public function add(array &$array, $toPath, $value, $propertyForNewValue = '', $propertyForOldValue = '')
+    public function add(array &$array, string $toPath, $value, string $propertyForNewValue = '', string $propertyForOldValue = ''): void
     {
         // Get the value at destination path (to preserve it if isn't an array)
         $currentValue = $this->getValue($array, $toPath);
@@ -182,13 +182,13 @@ class ArrayWriter
      *
      * If the $to path has already a value, it will be overwritten.
      *
-     * @param array $array
-     * @param $from
-     * @param $to
+     * @param array  $array
+     * @param string $from
+     * @param string $to
      *
      * @throws AccessException if the $from path is not readable
      */
-    public function cp(array &$array, $from, $to)
+    public function cp(array &$array, string $from, string $to): void
     {
         // If $from is not readable
         if (false === $this->pa->isReadable($array, $from)) {
@@ -215,13 +215,13 @@ class ArrayWriter
      *
      * If the $to path already has a value, an AccessException is thrown.
      *
-     * @param array $array
-     * @param $from
-     * @param $to
+     * @param array  $array
+     * @param string $from
+     * @param string $to
      *
      * @throws AccessException If the $to path already has a value
      */
-    public function cpSafe(array &$array, $from, $to)
+    public function cpSafe(array &$array, string $from, string $to): void
     {
         // If $from is not readable
         if (false === $this->isWritable($array, $to)) {
@@ -240,7 +240,7 @@ class ArrayWriter
      *
      * @throws AccessException If the path to edit is not readable
      */
-    public function edit(array &$array, $path, $value)
+    public function edit(array &$array, string $path, $value): void
     {
         // If $path is not writable
         if (false === $this->isRoot($path) && false === $this->pa->isReadable($array, $path)) {
@@ -257,11 +257,11 @@ class ArrayWriter
     /**
      * Merges $from values into $in path.
      *
-     * @param array $array
-     * @param $from
-     * @param $in
+     * @param array  $array
+     * @param string $from
+     * @param string $in
      */
-    public function merge(array &$array, $from, $in)
+    public function merge(array &$array, string $from, string $in): void
     {
         $fromValue = $this->getValue($array, $from);
         $this->rm($array, $from);
@@ -283,7 +283,7 @@ class ArrayWriter
      *
      * @throws AccessException if $from path is not readable
      */
-    public function mv(array &$array, $from, $to)
+    public function mv(array &$array, string $from, string $to): void
     {
         // Do the moving
         $this->cp($array, $from, $to);
@@ -304,7 +304,7 @@ class ArrayWriter
      * @throws AccessException if $from path is not readable
      * @throws AccessException if the $to path already has a value
      */
-    public function mvSafe(array &$array, $from, $to)
+    public function mvSafe(array &$array, string $from, string $to): void
     {
         // Do the moving
         $this->cpSafe($array, $from, $to);
@@ -332,10 +332,10 @@ class ArrayWriter
      *         2 => 'value 2.3'
      *     ];
      *
-     * @param array $array
-     * @param $path
+     * @param array  $array
+     * @param string $path
      */
-    public function mvUp(array &$array, $path)
+    public function mvUp(array &$array, string $path): void
     {
         // Build the path object
         $pathObject = new PropertyPath($path);
@@ -364,8 +364,10 @@ class ArrayWriter
      * @param array  $array
      * @param string $path
      */
-    public function rm(array &$array, $path)
+    public function rm(array &$array, string $path): void
     {
+        // This way it will trigger an error if the calculated value is not correct
+        $node = null;
         $path = new PropertyPathBuilder($path);
 
         $nodes        = $path->getPropertyPath()->getElements();
@@ -401,10 +403,8 @@ class ArrayWriter
      * @param array  $array
      * @param string $path
      * @param string $wrapperName
-     *
-     * @return array
      */
-    public function wrap(array &$array, $path, $wrapperName)
+    public function wrap(array &$array, string $path, string $wrapperName): void
     {
         // Get the value to move: if path is empty, get the full array graph
         $value = (empty($path) || '[]' === $path) ? $array : $this->pa->getValue($array, $path);
@@ -429,7 +429,7 @@ class ArrayWriter
      *
      * @return string
      */
-    public static function pathize($string)
+    public static function pathize($string): string
     {
         return '[' . $string . ']';
     }
@@ -441,7 +441,7 @@ class ArrayWriter
      *
      * @return array
      */
-    private function forceArray($value)
+    private function forceArray($value): array
     {
         // If the $value is not an array...
         if (false === is_array($value)) {
@@ -455,11 +455,11 @@ class ArrayWriter
     /**
      * Removes "[" and "]" from path.
      *
-     * @param $path
+     * @param string $path
      *
      * @return string
      */
-    private function removePathDelimiters($path)
+    private function removePathDelimiters(string $path): string
     {
         return str_replace(['[', ']'], '', $path);
     }
