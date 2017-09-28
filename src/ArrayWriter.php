@@ -130,6 +130,39 @@ class ArrayWriter
     }
 
     /**
+     * @param array  $array  The array in which the the key is searched for
+     * @param string $needle The key to search for
+     *
+     * @return bool
+     */
+    public function keyExistsNested(array $array, string $needle): bool
+    {
+        // If the key exists in the first level...
+        if (key_exists($needle, $array)) {
+            // Return true
+            return true;
+        }
+
+        // Search in the deeper levels of the array
+        foreach ($array as $key => $value) {
+            // If this value is an array...
+            if (is_array($value)) {
+                // ... First search for the key and if found...
+                if (key_exists($needle, $value)) {
+                    // ... Return true
+                    return true;
+                }
+
+                // The $needle is not found: continue the search again
+                $this->keyExistsNested($value, $needle);
+            }
+        }
+
+        // Nothing: the $needle were not found: return false
+        return false;
+    }
+
+    /**
      * Adds a value to a node.
      *
      * The method can recognize if the current value at $toPath is a string: if it is, the method first transforms the
