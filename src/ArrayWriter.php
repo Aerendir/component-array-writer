@@ -443,7 +443,7 @@ class ArrayWriter
         $value = (empty($path) || '[]' === $path) ? $array : $this->pa->getValue($array, $path);
 
         // Remove eventual [ or ] from the $wrapperName
-        $wrapperName = $this->removePathDelimiters($wrapperName);
+        $wrapperName = $this->unpathize($wrapperName);
 
         $value = [$wrapperName => $value];
 
@@ -468,13 +468,25 @@ class ArrayWriter
     }
 
     /**
+     * Removes "[" and "]" from path.
+     *
+     * @param string $path
+     *
+     * @return string
+     */
+    public static function unpathize($path): string
+    {
+        return str_replace(['[', ']'], '', $path);
+    }
+
+    /**
      * Forces a value to be an array.
      *
      * @param $value
      *
      * @return array
      */
-    private function forceArray($value): array
+    public static function forceArray($value): array
     {
         // If the $value is not an array...
         if (false === is_array($value)) {
@@ -483,17 +495,5 @@ class ArrayWriter
         }
 
         return $value;
-    }
-
-    /**
-     * Removes "[" and "]" from path.
-     *
-     * @param string $path
-     *
-     * @return string
-     */
-    private function removePathDelimiters(string $path): string
-    {
-        return str_replace(['[', ']'], '', $path);
     }
 }
