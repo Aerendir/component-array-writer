@@ -11,7 +11,7 @@
     ],
     "require": {
         "php": "^7.1",
-        "symfony/property-access": "^2.8||^3.0"
+        "symfony/property-access": "^2.8||^3.0||^4.0"
     },
     "require-dev": {
         "codeclimate/php-test-reporter": "dev-master",
