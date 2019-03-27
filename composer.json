@@ -16,7 +16,8 @@
     "require-dev": {
         "codeclimate/php-test-reporter": "dev-master",
         "friendsofphp/php-cs-fixer": "~2",
-        "phpunit/phpunit": "^6"
+        "phpunit/phpunit": "^6",
+        "roave/security-advisories": "dev-master"
     },
     "autoload": {
         "psr-4": {

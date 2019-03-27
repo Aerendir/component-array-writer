@@ -66,6 +66,25 @@ class ArrayWriter
     }
 
     /**
+     * This just searches in the first level, not in deeper ones.
+     *
+     * @param array  $array
+     * @param string $searchingKey
+     *
+     * @return string|null
+     */
+    public function getValueByPartialKey(array $array, string $searchingKey): ?string
+    {
+        foreach ($array as $key => $value) {
+            if (false !== stripos($key, $searchingKey)) {
+                return $value;
+            }
+        }
+
+        return null;
+    }
+
+    /**
      * Checks if a given path is a node or not.
      *
      * @param array  $array
