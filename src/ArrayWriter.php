@@ -51,7 +51,7 @@ class ArrayWriter
      * @param array  $array
      * @param string $path
      *
-     * @return array|string
+     * @return mixed
      */
     public function getValue(array $array, string $path)
     {
@@ -71,7 +71,7 @@ class ArrayWriter
      * @param array  $array
      * @param string $searchingKey
      *
-     * @return string|null
+     * @return mixed
      */
     public function getValueByPartialKey(array $array, string $searchingKey): ?string
     {
