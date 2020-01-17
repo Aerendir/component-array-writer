@@ -1,6 +1,9 @@
-phpdoc.xml
 phpunit.xml
 vendor
+vendor-bin
 build
-.php_cs.cache
 composer.lock
+.php_cs.cache
+.phpunit.result.cache
+var
+tools
