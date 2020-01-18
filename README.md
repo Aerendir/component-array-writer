@@ -1,12 +1,47 @@
-[![Latest Stable Version](https://poser.pugx.org/serendipity_hq/php_array_writer/v/stable.png)](https://packagist.org/packages/serendipity_hq/php_array_writer)
-[![Build Status](https://travis-ci.org/Aerendir/PHPArrayWriter.svg?branch=master)](https://travis-ci.org/Aerendir/PHPArrayWriter)
-[![Total Downloads](https://poser.pugx.org/serendipity_hq/php_array_writer/downloads.svg)](https://packagist.org/packages/serendipity_hq/php_array_writer)
-[![License](https://poser.pugx.org/serendipity_hq/php_array_writer/license.svg)](https://packagist.org/packages/serendipity_hq/php_array_writer)
-[![Code Climate](https://codeclimate.com/github/Aerendir/PHPArrayWriter/badges/gpa.svg)](https://codeclimate.com/github/Aerendir/PHPArrayWriter)
-[![Test Coverage](https://codeclimate.com/github/Aerendir/PHPArrayWriter/badges/coverage.svg)](https://codeclimate.com/github/Aerendir/PHPArrayWriter)
-[![Issue Count](https://codeclimate.com/github/Aerendir/PHPArrayWriter/badges/issue_count.svg)](https://codeclimate.com/github/Aerendir/PHPArrayWriter)
-[![SensioLabsInsight](https://insight.sensiolabs.com/projects/d31e356d-d01d-4b1b-990e-a1fa46acb050/mini.png)](https://insight.sensiolabs.com/projects/d31e356d-d01d-4b1b-990e-a1fa46acb050)
-[![Dependency Status](https://www.versioneye.com/user/projects/572f442aa0ca3500508408c9/badge.svg?style=flat)](https://www.versioneye.com/user/projects/572f442aa0ca3500508408c9)
+<p align="center">
+    <a href="http://www.serendipityhq.com" target="_blank">
+        <img src="http://www.serendipityhq.com/assets/open-source-projects/Logo-SerendipityHQ-Icon-Text-Purple.png">
+    </a>
+</p>
 
 # PHPArrayWriter
-A class to write arrays
+
+[![Latest Stable Version](https://poser.pugx.org/serendipity_hq/php_array_writer/v/stable.png)](https://packagist.org/packages/serendipity_hq/php_array_writer)
+[![Total Downloads](https://poser.pugx.org/serendipity_hq/php_array_writer/downloads.svg)](https://packagist.org/packages/serendipity_hq/php_array_writer)
+[![License](https://poser.pugx.org/serendipity_hq/php_array_writer/license.svg)](https://packagist.org/packages/serendipity_hq/php_array_writer)
+[![SensioLabsInsight](https://insight.sensiolabs.com/projects/daa2a03b-444d-4ea6-8516-10e81c089b84/mini.png)](https://insight.sensiolabs.com/projects/daa2a03b-444d-4ea6-8516-10e81c089b84)
+
+![Phan](https://github.com/Aerendir/PHPArrayWriter/workflows/Phan/badge.svg)
+![PHPStan](https://github.com/Aerendir/PHPArrayWriter/workflows/PHPStan/badge.svg)
+![PSalm](https://github.com/Aerendir/PHPArrayWriter/workflows/PSalm/badge.svg)
+![PHPUnit](https://github.com/Aerendir/PHPArrayWriter/workflows/PHPunit/badge.svg)
+![Composer](https://github.com/Aerendir/PHPArrayWriter/workflows/Composer/badge.svg)
+![PHP CS Fixer](https://github.com/Aerendir/PHPArrayWriter/workflows/PHP%20CS%20Fixer/badge.svg)
+![Rector](https://github.com/Aerendir/PHPArrayWriter/workflows/Rector/badge.svg)
+
+A class to write and read arrays.
+
+## Available methods
+
+- `getValue()`
+- `getValueByPartialKey()`
+- `isNode()`
+- `isReadable()`
+- `isRoot()`
+- `isWritable()`
+- `keyExistsNested()`
+- `add()`
+- `cp()`
+- `cpSafe()`
+- `edit()`
+- `merge()`
+- `mv()`
+- `mvSafe()`
+- `mvUp()`
+- `rm()`
+- `wrap()`
+- `pathize()`
+- `unpathize()`
+- `forceArray()`
+
+For details about each method, please, read the comments in the code: they are really simple to be read, trust me!
