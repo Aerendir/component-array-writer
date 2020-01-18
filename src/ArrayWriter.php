@@ -14,11 +14,18 @@
 
 namespace SHQ\Component\ArrayWriter;
 
+use Safe\Exceptions\StringsException;
+use function Safe\sprintf;
 use Symfony\Component\PropertyAccess\Exception\AccessException;
+use Symfony\Component\PropertyAccess\Exception\InvalidArgumentException;
+use Symfony\Component\PropertyAccess\Exception\InvalidPropertyPathException;
 use Symfony\Component\PropertyAccess\Exception\NoSuchIndexException;
+use Symfony\Component\PropertyAccess\Exception\UnexpectedTypeException;
 use Symfony\Component\PropertyAccess\PropertyAccess;
+use Symfony\Component\PropertyAccess\PropertyAccessorInterface;
 use Symfony\Component\PropertyAccess\PropertyPath;
 use Symfony\Component\PropertyAccess\PropertyPathBuilder;
+use Symfony\Component\PropertyAccess\PropertyPathInterface;
 
 /**
  * Manages some writing operations on the passed array.
@@ -27,12 +34,10 @@ use Symfony\Component\PropertyAccess\PropertyPathBuilder;
  * - cp: copy a value to another path (and left intact the value in the original location)
  * - mv: moves a value to another path
  * - rm: removes a value from the given path
- *
- * @since 2
  */
 class ArrayWriter
 {
-    /** @var \Symfony\Component\PropertyAccess\PropertyAccessor $pa The PropertyAccessor used to manipulate the array */
+    /** @var PropertyAccessorInterface $pa The PropertyAccessor used to manipulate the array */
     private $pa;
 
     /**
@@ -48,8 +53,12 @@ class ArrayWriter
     /**
      * Get the value of the given path from the array graph.
      *
-     * @param array  $array
-     * @param string $path
+     * @param array<mixed, mixed> $array
+     * @param string              $path
+     *
+     *@throws AccessException
+     * @throws UnexpectedTypeException
+     * @throws InvalidArgumentException
      *
      * @return mixed
      */
@@ -68,15 +77,15 @@ class ArrayWriter
     /**
      * This just searches in the first level, not in deeper ones.
      *
-     * @param array  $array
-     * @param string $searchingKey
+     * @param array<int|string, mixed> $array
+     * @param string                   $searchingKey
      *
      * @return mixed
      */
-    public function getValueByPartialKey(array $array, string $searchingKey): ?string
+    public function getValueByPartialKey(array $array, string $searchingKey)
     {
         foreach ($array as $key => $value) {
-            if (false !== stripos($key, $searchingKey)) {
+            if (false !== stripos((string) $key, $searchingKey)) {
                 return $value;
             }
         }
@@ -87,8 +96,12 @@ class ArrayWriter
     /**
      * Checks if a given path is a node or not.
      *
-     * @param array  $array
-     * @param string $path
+     * @param array<mixed, mixed> $array
+     * @param string              $path
+     *
+     * @throws AccessException
+     * @throws UnexpectedTypeException
+     * @throws InvalidArgumentException
      *
      * @return bool
      */
@@ -100,8 +113,8 @@ class ArrayWriter
     /**
      * Checks if a path exists in the given array.
      *
-     * @param array  $array
-     * @param string $path
+     * @param array<int|string, mixed> $array
+     * @param string                   $path
      *
      * @return bool
      */
@@ -109,7 +122,7 @@ class ArrayWriter
     {
         try {
             return $this->pa->isReadable($array, $path);
-        } catch (\Exception $e) {
+        } catch (\Exception $exception) {
             return false;
         }
     }
@@ -127,8 +140,12 @@ class ArrayWriter
     /**
      * Returns true if the $path is null, false instead.
      *
-     * @param array  $array
-     * @param string $path
+     * @param array<mixed, mixed> $array
+     * @param string              $path
+     *
+     *@throws AccessException
+     * @throws UnexpectedTypeException
+     * @throws InvalidArgumentException
      *
      * @return bool
      */
@@ -140,7 +157,7 @@ class ArrayWriter
 
         try {
             $this->pa->getValue($array, $path);
-        } catch (NoSuchIndexException $e) {
+        } catch (NoSuchIndexException $noSuchIndexException) {
             // If the exception is thrown, the value can be written at given $path as it hasn't already a value
             return true;
         }
@@ -149,8 +166,8 @@ class ArrayWriter
     }
 
     /**
-     * @param array  $array  The array in which the the key is searched for
-     * @param string $needle The key to search for
+     * @param array<int|string, mixed> $array  The array in which the the key is searched for
+     * @param string                   $needle The key to search for
      *
      * @return bool
      */
@@ -163,7 +180,7 @@ class ArrayWriter
         }
 
         // Search in the deeper levels of the array
-        foreach ($array as $key => $value) {
+        foreach ($array as $value) {
             // If this value is an array...
             if (is_array($value)) {
                 // ... First search for the key and if found...
@@ -193,11 +210,16 @@ class ArrayWriter
      *
      * If the key doesn't exist, the method simply adds it.
      *
-     * @param array  $array               Passed by reference
-     * @param string $toPath              The location where to add the value taken $fromPath
-     * @param mixed  $value               The value to add
-     * @param string $propertyForNewValue The name to give to the new property
-     * @param string $propertyForOldValue The old value is now assigned to a property: this is its property name
+     * @param array<mixed, mixed> $array               Passed by reference
+     * @param string              $toPath              The location where to add the value taken $fromPath
+     * @param mixed               $value               The value to add
+     * @param string              $propertyForNewValue The name to give to the new property
+     * @param string              $propertyForOldValue The old value is now assigned to a property: this is its property name
+     *
+     * @throws StringsException
+     * @throws AccessException
+     * @throws InvalidArgumentException
+     * @throws UnexpectedTypeException
      */
     public function add(array &$array, string $toPath, $value, string $propertyForNewValue = '', string $propertyForOldValue = ''): void
     {
@@ -234,11 +256,16 @@ class ArrayWriter
      *
      * If the $to path has already a value, it will be overwritten.
      *
-     * @param array  $array
-     * @param string $from
-     * @param string $to
+     * @param-out object $array
      *
-     * @throws AccessException if the $from path is not readable
+     * @param array<int|string, mixed> $array
+     * @param string                   $from
+     * @param string                   $to
+     *
+     * @throws AccessException          if the $from path is not readable
+     * @throws StringsException
+     * @throws InvalidArgumentException
+     * @throws UnexpectedTypeException
      */
     public function cp(array &$array, string $from, string $to): void
     {
@@ -253,7 +280,7 @@ class ArrayWriter
         // Check if $to is the root and if it is
         if ($this->isRoot($to)) {
             // Merge the value in the passed $array
-            $array = array_merge($array, $this->forceArray($value));
+            $array = array_merge($array, self::forceArray($value));
 
             return;
         }
@@ -267,11 +294,14 @@ class ArrayWriter
      *
      * If the $to path already has a value, an AccessException is thrown.
      *
-     * @param array  $array
-     * @param string $from
-     * @param string $to
+     * @param array<mixed, mixed> $array
+     * @param string              $from
+     * @param string              $to
      *
-     * @throws AccessException If the $to path already has a value
+     * @throws AccessException          If the $to path already has a value
+     * @throws StringsException
+     * @throws UnexpectedTypeException
+     * @throws InvalidArgumentException
      */
     public function cpSafe(array &$array, string $from, string $to): void
     {
@@ -286,11 +316,14 @@ class ArrayWriter
     /**
      * Edits the value at the given path.
      *
-     * @param array  $array
-     * @param string $path
-     * @param $value
+     * @param array<mixed, mixed> $array
+     * @param string              $path
+     * @param mixed               $value
      *
-     * @throws AccessException If the path to edit is not readable
+     * @throws AccessException          If the path to edit is not readable
+     * @throws StringsException
+     * @throws InvalidArgumentException
+     * @throws UnexpectedTypeException
      */
     public function edit(array &$array, string $path, $value): void
     {
@@ -309,9 +342,15 @@ class ArrayWriter
     /**
      * Merges $from values into $in path.
      *
-     * @param array  $array
-     * @param string $from
-     * @param string $in
+     * @param array<int|string, mixed> $array
+     * @param string                   $from
+     * @param string                   $in
+     *
+     * @throws StringsException
+     * @throws AccessException
+     * @throws UnexpectedTypeException
+     * @throws InvalidArgumentException
+     * @throws \InvalidArgumentException
      */
     public function merge(array &$array, string $from, string $in): void
     {
@@ -319,7 +358,7 @@ class ArrayWriter
         $this->rm($array, $from);
         $inValue   = $this->getValue($array, $in);
 
-        $merged = array_merge($this->forceArray($inValue), $this->forceArray($fromValue));
+        $merged = array_merge(self::forceArray($inValue), self::forceArray($fromValue));
 
         $this->edit($array, $in, $merged);
     }
@@ -329,11 +368,17 @@ class ArrayWriter
      *
      * If $to path already has a value, it will be overwritten.
      *
-     * @param array  $array
-     * @param string $from
-     * @param string $to
+     * @param array<mixed, mixed> $array
+     * @param string              $from
+     * @param string              $to
      *
-     * @throws AccessException if $from path is not readable
+     * @throws AccessException           if $from path is not readable
+     * @throws StringsException
+     * @throws InvalidArgumentException
+     * @throws UnexpectedTypeException
+     * @throws \InvalidArgumentException
+     *
+     * @psalm-suppress InvalidArgument
      */
     public function mv(array &$array, string $from, string $to): void
     {
@@ -349,12 +394,16 @@ class ArrayWriter
      *
      * If $to path already has a value, an AccessException will be thrown.
      *
-     * @param array  $array
-     * @param string $from
-     * @param string $to
+     * @param array<int|string, mixed> $array
+     * @param string                   $from
+     * @param string                   $to
      *
-     * @throws AccessException if $from path is not readable
-     * @throws AccessException if the $to path already has a value
+     * @throws AccessException           if $from path is not readable
+     * @throws AccessException           if the $to path already has a value
+     * @throws StringsException
+     * @throws UnexpectedTypeException
+     * @throws InvalidArgumentException
+     * @throws \InvalidArgumentException
      */
     public function mvSafe(array &$array, string $from, string $to): void
     {
@@ -384,8 +433,15 @@ class ArrayWriter
      *         2 => 'value 2.3'
      *     ];
      *
-     * @param array  $array
-     * @param string $path
+     * @param array<int|string, mixed> $array
+     * @param string                   $path
+     *
+     * @throws StringsException
+     * @throws InvalidArgumentException
+     * @throws InvalidPropertyPathException
+     * @throws AccessException
+     * @throws UnexpectedTypeException
+     * @throws \InvalidArgumentException
      */
     public function mvUp(array &$array, string $path): void
     {
@@ -398,12 +454,12 @@ class ArrayWriter
         // Remove the key to move one level up
         $this->rm($array, $path);
 
-        $parentPath = null === $pathObject->getParent() ? '[]' : $pathObject->getParent();
+        $parentPath = $pathObject->getParent() ?? '[]';
 
         // Get the values of the up level
         $parentValues = $this->getValue($array, $parentPath);
 
-        $mergedArray = array_merge($this->forceArray($parentValues), $this->forceArray($values));
+        $mergedArray = array_merge(self::forceArray($parentValues), self::forceArray($values));
 
         $this->edit($array, $parentPath, $mergedArray);
     }
@@ -413,19 +469,29 @@ class ArrayWriter
      *
      * @see http://stackoverflow.com/a/16698855/1399706
      *
-     * @param array  $array
-     * @param string $path
+     * @param array<int|string, mixed> $array
+     * @param string                   $path
+     *
+     * @throws StringsException
+     * @throws \InvalidArgumentException
+     *
+     * @psalm-suppress PossiblyNullArrayOffset
      */
     public function rm(array &$array, string $path): void
     {
         // This way it will trigger an error if the calculated value is not correct
-        $node = null;
-        $path = new PropertyPathBuilder($path);
-
-        $nodes        = $path->getPropertyPath()->getElements();
+        $node         = null;
+        $propertyPath = new PropertyPathBuilder($path);
         $parentLevel  = null;
         $currentLevel = &$array;
-        foreach ($nodes as &$node) {
+        $nodes        = $propertyPath->getPropertyPath();
+
+        if ( ! $nodes instanceof PropertyPathInterface) {
+            throw new \InvalidArgumentException(sprintf('The path "%s" doesn\'t contain any node.', $path));
+        }
+
+        /** @var string $node */
+        foreach ($nodes->getElements() as &$node) {
             $parentLevel  = &$currentLevel;
             $currentLevel = &$currentLevel[$node];
         }
@@ -452,9 +518,14 @@ class ArrayWriter
      *         ]
      *     ];
      *
-     * @param array  $array
-     * @param string $path
-     * @param string $wrapperName
+     * @param array<mixed, mixed> $array
+     * @param string              $path
+     * @param string              $wrapperName
+     *
+     * @throws StringsException
+     * @throws AccessException
+     * @throws InvalidArgumentException
+     * @throws UnexpectedTypeException
      */
     public function wrap(array &$array, string $path, string $wrapperName): void
     {
@@ -462,7 +533,7 @@ class ArrayWriter
         $value = (empty($path) || '[]' === $path) ? $array : $this->pa->getValue($array, $path);
 
         // Remove eventual [ or ] from the $wrapperName
-        $wrapperName = $this->unpathize($wrapperName);
+        $wrapperName = self::unpathize($wrapperName);
 
         $value = [$wrapperName => $value];
 
@@ -480,6 +551,8 @@ class ArrayWriter
      * @param int|string $string Can be a position or an object name
      *
      * @return string
+     *
+     * @psalm-suppress PossiblyInvalidOperand
      */
     public static function pathize($string): string
     {
@@ -501,9 +574,9 @@ class ArrayWriter
     /**
      * Forces a value to be an array.
      *
-     * @param $value
+     * @param mixed $value
      *
-     * @return array
+     * @return array<int|string, mixed>
      */
     public static function forceArray($value): array
     {

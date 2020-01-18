@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<psalm
+        cacheDirectory="./var/cache/psalm"
+        allowPhpStormGenerics="true"
+        checkForThrowsDocblock="true"
+        hideExternalErrors="true"
+        ignoreInternalFunctionNullReturn="false"
+        ignoreInternalFunctionFalseReturn="false"
+    requireVoidReturnType="false"
+    strictBinaryOperands="true"
+    totallyTyped="true"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns="https://getpsalm.org/schema/config"
+    xsi:schemaLocation="https://getpsalm.org/schema/config vendor/vimeo/psalm/config.xsd"
+>
+    <projectFiles>
+        <directory name="src"/>
+        <ignoreFiles>
+            <directory name="vendor"/>
+        </ignoreFiles>
+    </projectFiles>
+
+    <issueHandlers>
+        <ImplicitToStringCast errorLevel="suppress" />
+        <MixedAssignment errorLevel="suppress" />
+        <ReferenceConstraintViolation errorLevel="suppress" />
+    </issueHandlers>
+    <plugins>
+        <pluginClass class="Psalm\PhpUnitPlugin\Plugin"/>
+    </plugins>
+</psalm>
