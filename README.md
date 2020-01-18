@@ -10,7 +10,7 @@
 [![Latest Stable Version](https://poser.pugx.org/serendipity_hq/php_array_writer/v/stable.png)](https://packagist.org/packages/serendipity_hq/php_array_writer)
 [![Total Downloads](https://poser.pugx.org/serendipity_hq/php_array_writer/downloads.svg)](https://packagist.org/packages/serendipity_hq/php_array_writer)
 [![License](https://poser.pugx.org/serendipity_hq/php_array_writer/license.svg)](https://packagist.org/packages/serendipity_hq/php_array_writer)
-[![SensioLabsInsight](https://insight.sensiolabs.com/projects/daa2a03b-444d-4ea6-8516-10e81c089b84/mini.png)](https://insight.sensiolabs.com/projects/daa2a03b-444d-4ea6-8516-10e81c089b84)
+[![SymfonyInsight](https://insight.symfony.com/projects/d31e356d-d01d-4b1b-990e-a1fa46acb050/mini.svg)](https://insight.symfony.com/projects/d31e356d-d01d-4b1b-990e-a1fa46acb050)
 
 ![Phan](https://github.com/Aerendir/PHPArrayWriter/workflows/Phan/badge.svg)
 ![PHPStan](https://github.com/Aerendir/PHPArrayWriter/workflows/PHPStan/badge.svg)
