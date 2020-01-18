@@ -8,7 +8,7 @@
  * See the LICENSE for more details.
  *
  * @author    Adamo Aerendir Crespi <hello@aerendir.me>
- * @copyright Copyright (C) 2014 - 2017 Aerendir. All rights reserved.
+ * @copyright Copyright (C) 2014 - 2020 Aerendir. All rights reserved.
  * @license   MIT License
  */
 
