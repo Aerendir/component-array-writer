@@ -24,6 +24,8 @@
         <ImplicitToStringCast errorLevel="suppress" />
         <MixedAssignment errorLevel="suppress" />
         <ReferenceConstraintViolation errorLevel="suppress" />
+        <!-- Compatibility issue with SF 3.4: Remove when support will be dropped -->
+        <DocblockTypeContradiction errorLevel="suppress" />
     </issueHandlers>
     <plugins>
         <pluginClass class="Psalm\PhpUnitPlugin\Plugin"/>
