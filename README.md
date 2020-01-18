@@ -6,6 +6,7 @@
 
 # PHPArrayWriter
 
+[![PHP from Packagist](https://img.shields.io/packagist/php-v/serendipity_hq/php_array_writer?color=%238892BF)](https://packagist.org/packages/serendipity_hq/php_array_writer)
 [![Latest Stable Version](https://poser.pugx.org/serendipity_hq/php_array_writer/v/stable.png)](https://packagist.org/packages/serendipity_hq/php_array_writer)
 [![Total Downloads](https://poser.pugx.org/serendipity_hq/php_array_writer/downloads.svg)](https://packagist.org/packages/serendipity_hq/php_array_writer)
 [![License](https://poser.pugx.org/serendipity_hq/php_array_writer/license.svg)](https://packagist.org/packages/serendipity_hq/php_array_writer)
