@@ -85,10 +85,10 @@ parameters:
         - 'Rector\CodingStyle\Rector\Encapsed\EncapsedStringsToSprintfRector'
         - 'Rector\CodingStyle\Rector\Class_\AddArrayDefaultToArrayPropertyRector'
         - 'Rector\PHPUnit\Rector\Class_\AddSeeTestAnnotationRector'
-        # Incompatible with static analyzers
-        - 'Rector\DeadCode\Rector\Concat\RemoveConcatAutocastRector'
+        # Incompatible with this lib
+        - 'Rector\DeadCode\Rector\Class_\RemoveUnusedClassesRector'
         # Bug https://github.com/rectorphp/rector/pull/2694
-        - 'Rector\TypeDeclaration\Rector\FunctionLike\ReturnTypeDeclarationRector'
+        #- 'Rector\TypeDeclaration\Rector\FunctionLike\ReturnTypeDeclarationRector'
         # Bug https://github.com/rectorphp/rector/issues/2695
         - 'Rector\SOLID\Rector\Class_\FinalizeClassesWithoutChildrenRector'
         # Bug https://github.com/rectorphp/rector/issues/2696
