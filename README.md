@@ -14,15 +14,15 @@
 [![Latest Stable Version](https://poser.pugx.org/serendipity_hq/php_array_writer/v/stable.png)](https://packagist.org/packages/serendipity_hq/php_array_writer)
 [![Total Downloads](https://poser.pugx.org/serendipity_hq/php_array_writer/downloads.svg)](https://packagist.org/packages/serendipity_hq/php_array_writer)
 [![License](https://poser.pugx.org/serendipity_hq/php_array_writer/license.svg)](https://packagist.org/packages/serendipity_hq/php_array_writer)
-[![Coverage Status](https://codecov.io/gh/Aerendir/PHPArrayWriter/branch/master/graph/badge.svg)](https://codecov.io/gh/Aerendir/PHPArrayWriter/)
-[![SymfonyInsight](https://insight.symfony.com/projects/d31e356d-d01d-4b1b-990e-a1fa46acb050/mini.svg)](https://insight.symfony.com/projects/d31e356d-d01d-4b1b-990e-a1fa46acb050)
 
+[![Coverage](https://sonarcloud.io/api/project_badges/measure?project=Aerendir_PHPArrayWriter&metric=coverage)](https://sonarcloud.io/dashboard?id=Aerendir_PHPArrayWriter)
 [![Maintainability Rating](https://sonarcloud.io/api/project_badges/measure?project=Aerendir_PHPArrayWriter&metric=sqale_rating)](https://sonarcloud.io/dashboard?id=Aerendir_PHPArrayWriter)
 [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=Aerendir_PHPArrayWriter&metric=alert_status)](https://sonarcloud.io/dashboard?id=Aerendir_PHPArrayWriter)
 [![Reliability Rating](https://sonarcloud.io/api/project_badges/measure?project=Aerendir_PHPArrayWriter&metric=reliability_rating)](https://sonarcloud.io/dashboard?id=Aerendir_PHPArrayWriter)
 [![Security Rating](https://sonarcloud.io/api/project_badges/measure?project=Aerendir_PHPArrayWriter&metric=security_rating)](https://sonarcloud.io/dashboard?id=Aerendir_PHPArrayWriter)
 [![Technical Debt](https://sonarcloud.io/api/project_badges/measure?project=Aerendir_PHPArrayWriter&metric=sqale_index)](https://sonarcloud.io/dashboard?id=Aerendir_PHPArrayWriter)
 [![Vulnerabilities](https://sonarcloud.io/api/project_badges/measure?project=Aerendir_PHPArrayWriter&metric=vulnerabilities)](https://sonarcloud.io/dashboard?id=Aerendir_PHPArrayWriter)
+[![SymfonyInsight](https://insight.symfony.com/projects/d31e356d-d01d-4b1b-990e-a1fa46acb050/mini.svg)](https://insight.symfony.com/projects/d31e356d-d01d-4b1b-990e-a1fa46acb050)
 
 [![Phan](https://github.com/Aerendir/PHPArrayWriter/workflows/Phan/badge.svg)](https://github.com/Aerendir/PHPArrayWriter/actions)
 [![PHPStan](https://github.com/Aerendir/PHPArrayWriter/workflows/PHPStan/badge.svg)](https://github.com/Aerendir/PHPArrayWriter/actions)
