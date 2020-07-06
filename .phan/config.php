@@ -58,8 +58,8 @@ return [
     // (e.g. '@Test\.php$@', or '@vendor/.*/(tests|Tests)/@')
     'exclude_file_regex' => '@^vendor/.*/(tests?|Tests?|stubs?|Stubs?)/@',
     'plugins' => [
-        'vendor/drenso/phan-extensions/Plugin/Annotation/SymfonyAnnotationPlugin.php',
-        'vendor/drenso/phan-extensions/Plugin/DocComment/InlineVarPlugin.php',
-        'vendor/drenso/phan-extensions/Plugin/DocComment/MethodPlugin.php',
+        'vendor-bin/phan/vendor/drenso/phan-extensions/Plugin/Annotation/SymfonyAnnotationPlugin.php',
+        'vendor-bin/phan/vendor/drenso/phan-extensions/Plugin/DocComment/InlineVarPlugin.php',
+        'vendor-bin/phan/vendor/drenso/phan-extensions/Plugin/DocComment/MethodPlugin.php',
     ]
 ];
