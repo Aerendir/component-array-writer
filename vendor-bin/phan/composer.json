@@ -1,8 +1,0 @@
-{
-    "require": {
-    },
-    "require-dev": {
-        "phan/phan": "^3.0",
-        "drenso/phan-extensions": "@stable"
-    }
-}

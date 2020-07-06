@@ -1,6 +1,5 @@
 phpunit.xml
 vendor
-/vendor-bin/**/vendor
 build
 composer.lock
 .php_cs.cache
