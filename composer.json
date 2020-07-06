@@ -17,7 +17,9 @@
         "thecodingmachine/safe": "^0.1|^1.0"
     },
     "require-dev": {
+        "drenso/phan-extensions": "@stable",
         "friendsofphp/php-cs-fixer": "^2.16",
+        "phan/phan": "^3.0",
         "rector/rector": "^0.7.43",
         "roave/security-advisories": "dev-master",
         "symfony/var-dumper": "^3.0||^4.0||^5.0",
