@@ -13,12 +13,12 @@
     ],
     "require": {
         "php": "^7.2",
-        "symfony/property-access": "^2.8||^3.0||^4.0||^5.0",
+        "symfony/property-access": "^3.0||^4.0||^5.0",
         "thecodingmachine/safe": "^0.1|^1.0"
     },
     "require-dev": {
         "roave/security-advisories": "dev-master",
-        "symfony/var-dumper": "^2.8||^3.0||^4||^5",
+        "symfony/var-dumper": "^3.0||^4.0||^5.0",
         "thecodingmachine/phpstan-safe-rule": "@stable"
     },
     "config": {
