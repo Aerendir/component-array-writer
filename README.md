@@ -22,7 +22,6 @@
 [![Security Rating](https://sonarcloud.io/api/project_badges/measure?project=Aerendir_PHPArrayWriter&metric=security_rating)](https://sonarcloud.io/dashboard?id=Aerendir_PHPArrayWriter)
 [![Technical Debt](https://sonarcloud.io/api/project_badges/measure?project=Aerendir_PHPArrayWriter&metric=sqale_index)](https://sonarcloud.io/dashboard?id=Aerendir_PHPArrayWriter)
 [![Vulnerabilities](https://sonarcloud.io/api/project_badges/measure?project=Aerendir_PHPArrayWriter&metric=vulnerabilities)](https://sonarcloud.io/dashboard?id=Aerendir_PHPArrayWriter)
-[![SymfonyInsight](https://insight.symfony.com/projects/d31e356d-d01d-4b1b-990e-a1fa46acb050/mini.svg)](https://insight.symfony.com/projects/d31e356d-d01d-4b1b-990e-a1fa46acb050)
 
 [![Phan](https://github.com/Aerendir/PHPArrayWriter/workflows/Phan/badge.svg)](https://github.com/Aerendir/PHPArrayWriter/actions)
 [![PHPStan](https://github.com/Aerendir/PHPArrayWriter/workflows/PHPStan/badge.svg)](https://github.com/Aerendir/PHPArrayWriter/actions)
