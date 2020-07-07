@@ -4,7 +4,8 @@
     </a>
 </p>
 
-# PHPArrayWriter
+PHP ARRAY WRITER
+================
 
 [![PHP from Packagist](https://img.shields.io/packagist/php-v/serendipity_hq/php_array_writer?color=%238892BF)](https://packagist.org/packages/serendipity_hq/php_array_writer)
 [![Tested with Symfony ^3.4](https://img.shields.io/badge/Symfony-%5E3.4-333)](https://github.com/Aerendir/PHPValueObjects/actions)
