@@ -17,7 +17,7 @@ return [
     // Thus, both first-party and third-party code being used by
     // your application should be included in this list.
     'directory_list' => [
-        'src', 'vendor'
+        'src', 'tests', 'vendor'
     ],
 
     // A directory list that defines files that will be excluded
