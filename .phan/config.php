@@ -44,9 +44,10 @@ $config = [
     'scalar_implicit_cast' => false,
     'ignore_undeclared_variables_in_global_scope' => false,
     'suppress_issue_types' => [
-        'PhanUnusedVariableCaughtException',
         'PhanUnreferencedPublicMethod',
-        'PhanUnreferencedClass'
+        'PhanUnreferencedClass',
+        // This has to be reactivated on PHP 8 (https://stackoverflow.com/a/61802240/1399706)
+        'PhanUnusedVariableCaughtException',
     ],
 
     // A regular expression to match files to be excluded
