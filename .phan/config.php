@@ -5,7 +5,7 @@ declare(strict_types=1);
  * default configuration. Command line arguments will be applied
  * after this file is read.
  */
-return [
+$config = [
     'target_php_version' => '7.2',
     'minimum_severity' => \Phan\Issue::SEVERITY_LOW,
 
@@ -57,9 +57,15 @@ return [
     // can't be removed for whatever reason.
     // (e.g. '@Test\.php$@', or '@vendor/.*/(tests|Tests)/@')
     'exclude_file_regex' => '@^vendor/.*/(tests?|Tests?|stubs?|Stubs?)/@',
-    'plugins' => [
-        'vendor/drenso/phan-extensions/Plugin/Annotation/SymfonyAnnotationPlugin.php',
-        'vendor/drenso/phan-extensions/Plugin/DocComment/InlineVarPlugin.php',
-        'vendor/drenso/phan-extensions/Plugin/DocComment/MethodPlugin.php',
-    ]
 ];
+
+// This is to make Phan compatible with --prefer-lowest option on GitHub Actions
+if (file_exists('vendor/drenso/phan-extensions/Plugin/DocComment/InlineVarPlugin.php')) {
+    $config['plugins'][] = 'vendor/drenso/phan-extensions/Plugin/DocComment/InlineVarPlugin.php';
+}
+
+if (file_exists('vendor/drenso/phan-extensions/Plugin/DocComment/MethodPlugin.php')) {
+    $config['plugins'][] = 'vendor/drenso/phan-extensions/Plugin/DocComment/MethodPlugin.php';
+}
+
+return $config;
