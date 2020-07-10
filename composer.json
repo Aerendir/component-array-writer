@@ -1,10 +1,10 @@
 {
-    "name": "serendipity_hq/php_array_writer",
+    "name": "serendipity_hq/component-array-writer",
     "description": "A class to read and write PHP arrays.",
     "type": "library",
     "license": "MIT",
     "keywords": ["array"],
-    "homepage": "https://github.com/Aerendir/PHPArrayWriter",
+    "homepage": "https://github.com/Aerendir/component-array-writer",
     "authors": [
         {
             "name": "Adamo Aerendir Crespi",
