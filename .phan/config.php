@@ -58,15 +58,10 @@ $config = [
     // can't be removed for whatever reason.
     // (e.g. '@Test\.php$@', or '@vendor/.*/(tests|Tests)/@')
     'exclude_file_regex' => '@^vendor/.*/(tests?|Tests?|stubs?|Stubs?)/@',
+    'plugins' => [
+        'vendor-bin/phan/vendor/drenso/phan-extensions/Plugin/DocComment/InlineVarPlugin.php',
+        'vendor-bin/phan/vendor/drenso/phan-extensions/Plugin/DocComment/MethodPlugin.php'
+    ]
 ];
-
-// This is to make Phan compatible with --prefer-lowest option on GitHub Actions
-if (file_exists('vendor/drenso/phan-extensions/Plugin/DocComment/InlineVarPlugin.php')) {
-    $config['plugins'][] = 'vendor/drenso/phan-extensions/Plugin/DocComment/InlineVarPlugin.php';
-}
-
-if (file_exists('vendor/drenso/phan-extensions/Plugin/DocComment/MethodPlugin.php')) {
-    $config['plugins'][] = 'vendor/drenso/phan-extensions/Plugin/DocComment/MethodPlugin.php';
-}
 
 return $config;
