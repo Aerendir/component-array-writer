@@ -17,7 +17,10 @@ $config = [
     // Thus, both first-party and third-party code being used by
     // your application should be included in this list.
     'directory_list' => [
-        'src', 'tests', 'vendor'
+        'src',
+        'tests',
+        'vendor',
+        'vendor-bin/phpunit/vendor'
     ],
 
     // A directory list that defines files that will be excluded
@@ -32,7 +35,10 @@ $config = [
     //       should be added to both the `directory_list`
     //       and `exclude_analysis_directory_list` arrays.
     'exclude_analysis_directory_list' => [
-        'vendor/', 'build/', 'docs/'
+        'vendor/',
+        'vendor-bin/phpunit/vendor',
+        'build/',
+        'docs/'
     ],
 
     'quick_mode' => false,
