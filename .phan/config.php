@@ -5,7 +5,7 @@ declare(strict_types=1);
  * default configuration. Command line arguments will be applied
  * after this file is read.
  */
-$config = [
+return [
     'target_php_version' => '7.2',
     'minimum_severity' => \Phan\Issue::SEVERITY_LOW,
 
@@ -69,5 +69,3 @@ $config = [
         'vendor-bin/phan/vendor/drenso/phan-extensions/Plugin/DocComment/MethodPlugin.php'
     ]
 ];
-
-return $config;
