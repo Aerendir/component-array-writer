@@ -5,7 +5,7 @@ declare(strict_types=1);
  * default configuration. Command line arguments will be applied
  * after this file is read.
  */
-return [
+$config = [
     'target_php_version' => '7.2',
     'minimum_severity' => \Phan\Issue::SEVERITY_LOW,
 
@@ -17,7 +17,10 @@ return [
     // Thus, both first-party and third-party code being used by
     // your application should be included in this list.
     'directory_list' => [
-        'src', 'vendor'
+        'src',
+        'tests',
+        'vendor',
+        'vendor-bin/phpunit/vendor'
     ],
 
     // A directory list that defines files that will be excluded
@@ -32,7 +35,10 @@ return [
     //       should be added to both the `directory_list`
     //       and `exclude_analysis_directory_list` arrays.
     'exclude_analysis_directory_list' => [
-        'vendor/', 'build/', 'docs/', 'tests/'
+        'vendor/',
+        'vendor-bin/phpunit/vendor',
+        'build/',
+        'docs/'
     ],
 
     'quick_mode' => false,
@@ -44,9 +50,10 @@ return [
     'scalar_implicit_cast' => false,
     'ignore_undeclared_variables_in_global_scope' => false,
     'suppress_issue_types' => [
-        'PhanUnusedVariableCaughtException',
         'PhanUnreferencedPublicMethod',
-        'PhanUnreferencedClass'
+        'PhanUnreferencedClass',
+        // This has to be reactivated on PHP 8 (https://stackoverflow.com/a/61802240/1399706)
+        'PhanUnusedVariableCaughtException',
     ],
 
     // A regular expression to match files to be excluded
@@ -58,8 +65,9 @@ return [
     // (e.g. '@Test\.php$@', or '@vendor/.*/(tests|Tests)/@')
     'exclude_file_regex' => '@^vendor/.*/(tests?|Tests?|stubs?|Stubs?)/@',
     'plugins' => [
-        'vendor/drenso/phan-extensions/Plugin/Annotation/SymfonyAnnotationPlugin.php',
-        'vendor/drenso/phan-extensions/Plugin/DocComment/InlineVarPlugin.php',
-        'vendor/drenso/phan-extensions/Plugin/DocComment/MethodPlugin.php',
+        'vendor-bin/phan/vendor/drenso/phan-extensions/Plugin/DocComment/InlineVarPlugin.php',
+        'vendor-bin/phan/vendor/drenso/phan-extensions/Plugin/DocComment/MethodPlugin.php'
     ]
 ];
+
+return $config;

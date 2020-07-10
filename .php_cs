@@ -23,6 +23,7 @@ EOF;
 return PhpCsFixer\Config::create()
     ->setFinder($finder)
     ->setUsingCache(true)
+    ->setCacheFile(__DIR__.'/var/cache/.php_cs.cache')
     ->setRiskyAllowed(true)
     ->setRules([
         'header_comment' => ['header' => $header],
@@ -71,6 +72,7 @@ return PhpCsFixer\Config::create()
         'ordered_imports' => true,
         'phpdoc_add_missing_param_annotation' => true,
         'phpdoc_order' => true,
+        'phpdoc_var_without_name' => false,
         'phpdoc_types_order' => ['null_adjustment' => 'always_last'],
         'single_line_comment_style' => ['comment_types' => ['hash']],
         'strict_comparison' => true

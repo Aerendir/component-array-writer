@@ -21,7 +21,7 @@ use Symfony\Component\PropertyAccess\Exception\AccessException;
 /**
  * Class ArrayWriterTest.
  */
-class ArrayWriterTest extends TestCase
+final class ArrayWriterTest extends TestCase
 {
     /** @var ArrayWriter $resource */
     private $resource;

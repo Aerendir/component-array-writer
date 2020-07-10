@@ -4,11 +4,12 @@
     </a>
 </p>
 
-# PHPArrayWriter
+PHP ARRAY WRITER
+================
 
 [![PHP from Packagist](https://img.shields.io/packagist/php-v/serendipity_hq/php_array_writer?color=%238892BF)](https://packagist.org/packages/serendipity_hq/php_array_writer)
 [![Tested with Symfony ^3.4](https://img.shields.io/badge/Symfony-%5E3.4-333)](https://github.com/Aerendir/PHPValueObjects/actions)
-[![Tested with Symfony ^4.0](https://img.shields.io/badge/Symfony-%5E4.0-333)](https://github.com/Aerendir/PHPValueObjects/actions)
+[![Tested with Symfony ^4.4](https://img.shields.io/badge/Symfony-%5E4.4-333)](https://github.com/Aerendir/PHPValueObjects/actions)
 [![Tested with Symfony ^5.0](https://img.shields.io/badge/Symfony-%5E5.0-333)](https://github.com/Aerendir/PHPValueObjects/actions)
 
 [![Latest Stable Version](https://poser.pugx.org/serendipity_hq/php_array_writer/v/stable.png)](https://packagist.org/packages/serendipity_hq/php_array_writer)
@@ -22,7 +23,6 @@
 [![Security Rating](https://sonarcloud.io/api/project_badges/measure?project=Aerendir_PHPArrayWriter&metric=security_rating)](https://sonarcloud.io/dashboard?id=Aerendir_PHPArrayWriter)
 [![Technical Debt](https://sonarcloud.io/api/project_badges/measure?project=Aerendir_PHPArrayWriter&metric=sqale_index)](https://sonarcloud.io/dashboard?id=Aerendir_PHPArrayWriter)
 [![Vulnerabilities](https://sonarcloud.io/api/project_badges/measure?project=Aerendir_PHPArrayWriter&metric=vulnerabilities)](https://sonarcloud.io/dashboard?id=Aerendir_PHPArrayWriter)
-[![SymfonyInsight](https://insight.symfony.com/projects/d31e356d-d01d-4b1b-990e-a1fa46acb050/mini.svg)](https://insight.symfony.com/projects/d31e356d-d01d-4b1b-990e-a1fa46acb050)
 
 [![Phan](https://github.com/Aerendir/PHPArrayWriter/workflows/Phan/badge.svg)](https://github.com/Aerendir/PHPArrayWriter/actions)
 [![PHPStan](https://github.com/Aerendir/PHPArrayWriter/workflows/PHPStan/badge.svg)](https://github.com/Aerendir/PHPArrayWriter/actions)
