@@ -1,20 +1,21 @@
 <p align="center">
     <a href="http://www.serendipityhq.com" target="_blank">
-        <img src="http://www.serendipityhq.com/assets/open-source-projects/Logo-SerendipityHQ-Icon-Text-Purple.png">
+        <img style="max-width: 350px" src="http://www.serendipityhq.com/assets/open-source-projects/Logo-SerendipityHQ-Icon-Text-Purple.png">
     </a>
 </p>
 
-ARRAY WRITER
-============
+<h1 align="center">Serendipity HQ Array Writer</h1>
+<p align="center">A class to write and read arrays.</p>
+<p align="center">
+    <a href="https://github.com/Aerendir/component-array-writer/releases"><img src="https://img.shields.io/packagist/v/serendipity_hq/component-array-writer.svg?style=flat-square"></a>
+    <a href="https://opensource.org/licenses/MIT"><img src="https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square"></a>
+    <a href="https://github.com/Aerendir/component-array-writer/releases"><img src="https://img.shields.io/packagist/php-v/serendipity_hq/component-array-writer?color=%238892BF&style=flat-square&logo=php" /></a>
+    <a title="Tested with Symfony ^3.4" href="https://github.com/Aerendir/component-array-writer/actions"><img title="Tested with Symfony ^3.4" src="https://img.shields.io/badge/Symfony-%5E3.4-333?style=flat-square&logo=symfony" /></a>
+    <a title="Tested with Symfony ^4.4" href="https://github.com/Aerendir/component-array-writer/actions"><img title="Tested with Symfony ^4.4" src="https://img.shields.io/badge/Symfony-%5E4.4-333?style=flat-square&logo=symfony" /></a>
+    <a title="Tested with Symfony ^5.0" href="https://github.com/Aerendir/component-array-writer/actions"><img title="Tested with Symfony ^5.0" src="https://img.shields.io/badge/Symfony-%5E5.0-333?style=flat-square&logo=symfony" /></a>
+</p>
 
-[![PHP from Packagist](https://img.shields.io/packagist/php-v/serendipity_hq/component-array-writer?color=%238892BF)](https://packagist.org/packages/serendipity_hq/component-array-writer)
-[![Tested with Symfony ^3.4](https://img.shields.io/badge/Symfony-%5E3.4-333)](https://github.com/Aerendir/component-array-writer/actions)
-[![Tested with Symfony ^4.4](https://img.shields.io/badge/Symfony-%5E4.4-333)](https://github.com/Aerendir/component-array-writer/actions)
-[![Tested with Symfony ^5.0](https://img.shields.io/badge/Symfony-%5E5.0-333)](https://github.com/Aerendir/component-array-writer/actions)
-
-[![Latest Stable Version](https://poser.pugx.org/serendipity_hq/component-array-writer/v/stable.png)](https://packagist.org/packages/serendipity_hq/component-array-writer)
-[![Total Downloads](https://poser.pugx.org/serendipity_hq/component-array-writer/downloads.svg)](https://packagist.org/packages/serendipity_hq/component-array-writer)
-[![License](https://poser.pugx.org/serendipity_hq/component-array-writer/license.svg)](https://packagist.org/packages/serendipity_hq/component-array-writer)
+## Current Status
 
 [![Coverage](https://sonarcloud.io/api/project_badges/measure?project=Aerendir_component-array-writer&metric=coverage)](https://sonarcloud.io/dashboard?id=Aerendir_component-array-writer)
 [![Maintainability Rating](https://sonarcloud.io/api/project_badges/measure?project=Aerendir_component-array-writer&metric=sqale_rating)](https://sonarcloud.io/dashboard?id=Aerendir_component-array-writer)
@@ -31,8 +32,6 @@ ARRAY WRITER
 [![Composer](https://github.com/Aerendir/PHPArrayWriter/workflows/Composer/badge.svg)](https://github.com/Aerendir/PHPArrayWriter/actions)
 [![PHP CS Fixer](https://github.com/Aerendir/PHPArrayWriter/workflows/PHP%20CS%20Fixer/badge.svg)](https://github.com/Aerendir/PHPArrayWriter/actions)
 [![Rector](https://github.com/Aerendir/PHPArrayWriter/workflows/Rector/badge.svg)](https://github.com/Aerendir/PHPArrayWriter/actions)
-
-A class to write and read arrays.
 
 ## Available methods
 
