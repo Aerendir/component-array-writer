@@ -10,9 +10,9 @@
     <a href="https://github.com/Aerendir/component-array-writer/releases"><img src="https://img.shields.io/packagist/v/serendipity_hq/component-array-writer.svg?style=flat-square"></a>
     <a href="https://opensource.org/licenses/MIT"><img src="https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square"></a>
     <a href="https://github.com/Aerendir/component-array-writer/releases"><img src="https://img.shields.io/packagist/php-v/serendipity_hq/component-array-writer?color=%238892BF&style=flat-square&logo=php" /></a>
-    <a title="Tested with Symfony ^3.4" href="https://github.com/Aerendir/component-array-writer/actions"><img title="Tested with Symfony ^3.4" src="https://img.shields.io/badge/Symfony-%5E3.4-333?style=flat-square&logo=symfony" /></a>
-    <a title="Tested with Symfony ^4.4" href="https://github.com/Aerendir/component-array-writer/actions"><img title="Tested with Symfony ^4.4" src="https://img.shields.io/badge/Symfony-%5E4.4-333?style=flat-square&logo=symfony" /></a>
-    <a title="Tested with Symfony ^5.0" href="https://github.com/Aerendir/component-array-writer/actions"><img title="Tested with Symfony ^5.0" src="https://img.shields.io/badge/Symfony-%5E5.0-333?style=flat-square&logo=symfony" /></a>
+    <a title="Tested with Symfony ^3.4" href="https://github.com/Aerendir/component-array-writer/actions?query=branch%3Adev"><img title="Tested with Symfony ^3.4" src="https://img.shields.io/badge/Symfony-%5E3.4-333?style=flat-square&logo=symfony" /></a>
+    <a title="Tested with Symfony ^4.4" href="https://github.com/Aerendir/component-array-writer/actions?query=branch%3Adev"><img title="Tested with Symfony ^4.4" src="https://img.shields.io/badge/Symfony-%5E4.4-333?style=flat-square&logo=symfony" /></a>
+    <a title="Tested with Symfony ^5.0" href="https://github.com/Aerendir/component-array-writer/actions?query=branch%3Adev"><img title="Tested with Symfony ^5.0" src="https://img.shields.io/badge/Symfony-%5E5.0-333?style=flat-square&logo=symfony" /></a>
 </p>
 
 ## Current Status
@@ -25,13 +25,13 @@
 [![Technical Debt](https://sonarcloud.io/api/project_badges/measure?project=Aerendir_component-array-writer&metric=sqale_index)](https://sonarcloud.io/dashboard?id=Aerendir_component-array-writer)
 [![Vulnerabilities](https://sonarcloud.io/api/project_badges/measure?project=Aerendir_component-array-writer&metric=vulnerabilities)](https://sonarcloud.io/dashboard?id=Aerendir_component-array-writer)
 
-[![Phan](https://github.com/Aerendir/PHPArrayWriter/workflows/Phan/badge.svg)](https://github.com/Aerendir/PHPArrayWriter/actions)
-[![PHPStan](https://github.com/Aerendir/PHPArrayWriter/workflows/PHPStan/badge.svg)](https://github.com/Aerendir/PHPArrayWriter/actions)
-[![PSalm](https://github.com/Aerendir/PHPArrayWriter/workflows/PSalm/badge.svg)](https://github.com/Aerendir/PHPArrayWriter/actions)
-[![PHPUnit](https://github.com/Aerendir/PHPArrayWriter/workflows/PHPunit/badge.svg)](https://github.com/Aerendir/PHPArrayWriter/actions)
-[![Composer](https://github.com/Aerendir/PHPArrayWriter/workflows/Composer/badge.svg)](https://github.com/Aerendir/PHPArrayWriter/actions)
-[![PHP CS Fixer](https://github.com/Aerendir/PHPArrayWriter/workflows/PHP%20CS%20Fixer/badge.svg)](https://github.com/Aerendir/PHPArrayWriter/actions)
-[![Rector](https://github.com/Aerendir/PHPArrayWriter/workflows/Rector/badge.svg)](https://github.com/Aerendir/PHPArrayWriter/actions)
+[![Phan](https://github.com/Aerendir/component-array-writer/workflows/Phan/badge.svg)](https://github.com/Aerendir/component-array-writer/actions?query=branch%3Adev)
+[![PHPStan](https://github.com/Aerendir/component-array-writer/workflows/PHPStan/badge.svg)](https://github.com/Aerendir/component-array-writer/actions?query=branch%3Adev)
+[![PSalm](https://github.com/Aerendir/component-array-writer/workflows/PSalm/badge.svg)](https://github.com/Aerendir/component-array-writer/actions?query=branch%3Adev)
+[![PHPUnit](https://github.com/Aerendir/component-array-writer/workflows/PHPunit/badge.svg)](https://github.com/Aerendir/component-array-writer/actions?query=branch%3Adev)
+[![Composer](https://github.com/Aerendir/component-array-writer/workflows/Composer/badge.svg)](https://github.com/Aerendir/component-array-writer/actions?query=branch%3Adev)
+[![PHP CS Fixer](https://github.com/Aerendir/component-array-writer/workflows/PHP%20CS%20Fixer/badge.svg)](https://github.com/Aerendir/component-array-writer/actions?query=branch%3Adev)
+[![Rector](https://github.com/Aerendir/component-array-writer/workflows/Rector/badge.svg)](https://github.com/Aerendir/component-array-writer/actions?query=branch%3Adev)
 
 ## Available methods
 
