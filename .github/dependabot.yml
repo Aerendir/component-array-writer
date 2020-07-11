@@ -81,11 +81,11 @@ updates:
           - "[Type] Dependencies"
           - "[Lang] PHP"
       open-pull-requests-limit: 1000
-    # Phan through Bamarni
+    # PHPStan through Bamarni
     - package-ecosystem: "composer"
       versioning-strategy: increase
       target-branch: "dev"
-      directory: "/vendor-bin/phan/"
+      directory: "/vendor-bin/phpstan/"
       schedule:
           interval: "daily"
       allow:
@@ -102,11 +102,11 @@ updates:
           - "[Type] Dependencies"
           - "[Lang] PHP"
       open-pull-requests-limit: 1000
-    # PHPStan through Bamarni
+    # Phan through Bamarni
     - package-ecosystem: "composer"
       versioning-strategy: increase
       target-branch: "dev"
-      directory: "/vendor-bin/phpstan/"
+      directory: "/vendor-bin/phan/"
       schedule:
           interval: "daily"
       allow:
