@@ -5,6 +5,9 @@
     "license": "MIT",
     "keywords": ["array"],
     "homepage": "https://github.com/Aerendir/component-array-writer",
+    "support": {
+        "issues": "https://github.com/Aerendir/component-array-writer/issues"
+    },
     "authors": [
         {
             "name": "Adamo Aerendir Crespi",
