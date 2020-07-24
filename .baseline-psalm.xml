@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<files psalm-version="3.12.2@7c7ebd068f8acaba211d4a2c707c4ba90874fa26">
+  <file src="src/ArrayWriter.php">
+    <ImplicitToStringCast occurrences="2">
+      <code>$parentPath</code>
+      <code>$parentPath</code>
+    </ImplicitToStringCast>
+    <MixedAssignment occurrences="13">
+      <code>$value</code>
+      <code>$value</code>
+      <code>$currentValue</code>
+      <code>$currentValue[]</code>
+      <code>$currentValue[$propertyForNewValue]</code>
+      <code>$value</code>
+      <code>$array</code>
+      <code>$fromValue</code>
+      <code>$inValue</code>
+      <code>$values</code>
+      <code>$parentValues</code>
+      <code>$currentLevel</code>
+      <code>$value</code>
+    </MixedAssignment>
+    <ReferenceConstraintViolation occurrences="3">
+      <code>return;</code>
+      <code>$array</code>
+      <code>$array</code>
+    </ReferenceConstraintViolation>
+  </file>
+</files>
