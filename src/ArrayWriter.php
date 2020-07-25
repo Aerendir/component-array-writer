@@ -1,15 +1,12 @@
 <?php
 
 /*
- * This file is part of the PHP Array Writer Component.
+ * This file is part of the Serendipity HQ Array Writer Component.
  *
- * Copyright Adamo Aerendir Crespi 2014-2017.
+ * Copyright (c) Adamo Aerendir Crespi <aerendir@serendipityhq.com>.
  *
- * See the LICENSE for more details.
- *
- * @author    Adamo Aerendir Crespi <hello@aerendir.me>
- * @copyright Copyright (C) 2014 - 2020 Aerendir. All rights reserved.
- * @license   MIT License
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
  */
 
 namespace SHQ\Component\ArrayWriter;
@@ -34,6 +31,7 @@ use Symfony\Component\PropertyAccess\PropertyPathInterface;
  * - cp: copy a value to another path (and left intact the value in the original location)
  * - mv: moves a value to another path
  * - rm: removes a value from the given path
+ *
  * @see \SHQ\Component\ArrayWriter\Tests\ArrayWriterTest
  */
 final class ArrayWriter
