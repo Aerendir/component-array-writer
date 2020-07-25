@@ -34,6 +34,7 @@ use Symfony\Component\PropertyAccess\PropertyPathInterface;
  * - cp: copy a value to another path (and left intact the value in the original location)
  * - mv: moves a value to another path
  * - rm: removes a value from the given path
+ * @see \SHQ\Component\ArrayWriter\Tests\ArrayWriterTest
  */
 final class ArrayWriter
 {
