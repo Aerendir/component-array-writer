@@ -84,6 +84,10 @@ final class ArrayWriter
      */
     public function getValueByPartialKey(array $array, string $searchingKey)
     {
+        /**
+         * @var int|string $key
+         * @var mixed      $value
+         */
         foreach ($array as $key => $value) {
             if (false !== \stripos((string) $key, $searchingKey)) {
                 return $value;
@@ -174,17 +178,19 @@ final class ArrayWriter
     public function keyExistsNested(array $array, string $needle): bool
     {
         // If the key exists in the first level...
-        if (\key_exists($needle, $array)) {
+        if (\array_key_exists($needle, $array)) {
             // Return true
             return true;
         }
 
-        // Search in the deeper levels of the array
+        /**
+         * Search in the deeper levels of the array.
+         */
         foreach ($array as $value) {
             // If this value is an array...
             if (\is_array($value)) {
                 // ... First search for the key and if found...
-                if (\key_exists($needle, $value)) {
+                if (\array_key_exists($needle, $value)) {
                     // ... Return true
                     return true;
                 }
@@ -223,7 +229,7 @@ final class ArrayWriter
      */
     public function add(array &$array, string $toPath, $value, string $propertyForNewValue = '', string $propertyForOldValue = ''): void
     {
-        // Get the value at destination path (to preserve it if isn't an array)
+        /** @var mixed $currentValue Get the value at destination path (to preserve it if isn't an array) */
         $currentValue = $this->getValue($array, $toPath);
 
         // If the current value isn't yet an array...
