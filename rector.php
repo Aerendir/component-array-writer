@@ -31,7 +31,7 @@ return static function (ContainerConfigurator $containerConfigurator) : void {
             SetList::CODE_QUALITY,
             SetList::CODING_STYLE,
             // SetList::NAMING, // Do not use in this library
-            SetList::ORDER,
+            // SetList::ORDER, // Do not use in this library
             SetList::PERFORMANCE,
             SetList::PHP_52,
             SetList::PHP_53,
