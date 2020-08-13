@@ -9,10 +9,10 @@
  * file that was distributed with this source code.
  */
 
-namespace SHQ\Component\ArrayWriter\Tests;
+namespace SerendipityHQ\Component\ArrayWriter\Tests;
 
 use PHPUnit\Framework\TestCase;
-use SHQ\Component\ArrayWriter\ArrayWriter;
+use SerendipityHQ\Component\ArrayWriter\ArrayWriter;
 use Symfony\Component\PropertyAccess\Exception\AccessException;
 
 /**

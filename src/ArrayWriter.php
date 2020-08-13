@@ -9,7 +9,7 @@
  * file that was distributed with this source code.
  */
 
-namespace SHQ\Component\ArrayWriter;
+namespace SerendipityHQ\Component\ArrayWriter;
 
 use Safe\Exceptions\StringsException;
 use function Safe\sprintf;

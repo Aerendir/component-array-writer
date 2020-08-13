@@ -29,12 +29,12 @@
     },
     "autoload": {
         "psr-4": {
-            "SHQ\\Component\\ArrayWriter\\": "src"
+            "SerendipityHQ\\Component\\ArrayWriter\\": "src"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "SHQ\\Component\\ArrayWriter\\Tests\\": "tests"
+            "SerendipityHQ\\Component\\ArrayWriter\\Tests\\": "tests"
         }
     },
     "scripts": {
