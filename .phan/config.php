@@ -5,8 +5,8 @@ declare(strict_types=1);
  * default configuration. Command line arguments will be applied
  * after this file is read.
  */
-$config = [
-    'target_php_version' => '7.2',
+return [
+    'target_php_version' => '7.3',
     'minimum_severity' => \Phan\Issue::SEVERITY_LOW,
 
     // A list of directories that should be parsed for class and
@@ -37,8 +37,6 @@ $config = [
     'exclude_analysis_directory_list' => [
         'vendor/',
         'vendor-bin/phpunit/vendor',
-        'build/',
-        'docs/'
     ],
 
     'quick_mode' => false,
@@ -69,5 +67,3 @@ $config = [
         'vendor-bin/phan/vendor/drenso/phan-extensions/Plugin/DocComment/MethodPlugin.php'
     ]
 ];
-
-return $config;

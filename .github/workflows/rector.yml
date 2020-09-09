@@ -16,12 +16,12 @@ jobs:
               uses: actions/checkout@v2
 
             - name: Setup PHP
-              uses: shivammathur/setup-php@2.3.2
+              uses: shivammathur/setup-php@2.5.0
               with:
                   php-version: ${{ matrix.php }}
                   coverage: none # disable xdebug, pcov
                   tools: prestissimo
-                  extensions: ast, intl
+                  extensions: ast
 
             - name: Install Composer deps
               run: |
@@ -29,5 +29,4 @@ jobs:
 
             - name: Run Rector
               run: |
-                  ./vendor/bin/rector process src --dry-run
-                  ./vendor/bin/rector process tests --dry-run
+                  ./vendor/bin/rector process --dry-run

@@ -7,7 +7,7 @@ updates:
       schedule:
           interval: "daily"
       allow:
-          - dependency-type: "all"
+          - dependency-type: "direct"
       assignees:
           - "Aerendir"
       reviewers:
@@ -26,7 +26,7 @@ updates:
       schedule:
           interval: "daily"
       allow:
-          - dependency-type: "all"
+          - dependency-type: "direct"
       assignees:
           - "Aerendir"
       reviewers:
@@ -47,7 +47,7 @@ updates:
       schedule:
           interval: "daily"
       allow:
-          - dependency-type: "all"
+          - dependency-type: "direct"
       assignees:
           - "Aerendir"
       reviewers:
@@ -68,28 +68,7 @@ updates:
       schedule:
           interval: "daily"
       allow:
-          - dependency-type: "all"
-      assignees:
-          - "Aerendir"
-      reviewers:
-          - "Aerendir"
-      commit-message:
-          # Prefix all commit messages with "npm"
-          prefix: "[PHP]"
-      labels:
-          - "Dependabot"
-          - "[Type] Dependencies"
-          - "[Lang] PHP"
-      open-pull-requests-limit: 1000
-    # Phan through Bamarni
-    - package-ecosystem: "composer"
-      versioning-strategy: increase
-      target-branch: "dev"
-      directory: "/vendor-bin/phan/"
-      schedule:
-          interval: "daily"
-      allow:
-          - dependency-type: "all"
+          - dependency-type: "direct"
       assignees:
           - "Aerendir"
       reviewers:
@@ -110,7 +89,28 @@ updates:
       schedule:
           interval: "daily"
       allow:
-          - dependency-type: "all"
+          - dependency-type: "direct"
+      assignees:
+          - "Aerendir"
+      reviewers:
+          - "Aerendir"
+      commit-message:
+          # Prefix all commit messages with "npm"
+          prefix: "[PHP]"
+      labels:
+          - "Dependabot"
+          - "[Type] Dependencies"
+          - "[Lang] PHP"
+      open-pull-requests-limit: 1000
+    # Phan through Bamarni
+    - package-ecosystem: "composer"
+      versioning-strategy: increase
+      target-branch: "dev"
+      directory: "/vendor-bin/phan/"
+      schedule:
+          interval: "daily"
+      allow:
+          - dependency-type: "direct"
       assignees:
           - "Aerendir"
       reviewers:

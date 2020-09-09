@@ -7,7 +7,7 @@ about: Create a report to help us improve
 
 |    | Version
 | --- | ---
-| PHP Array Writer |
+| Array Writer |
 | Symfony |
 | PHP |
 

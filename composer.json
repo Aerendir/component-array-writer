@@ -5,34 +5,36 @@
     "license": "MIT",
     "keywords": ["array"],
     "homepage": "https://github.com/Aerendir/component-array-writer",
+    "support": {
+        "issues": "https://github.com/Aerendir/component-array-writer/issues"
+    },
     "authors": [
         {
             "name": "Adamo Aerendir Crespi",
-            "email": "hello@aerendir.me"
+            "email": "aerendir@serendipityhq.com"
         }
     ],
     "require": {
-        "php": "^7.2",
-        "symfony/property-access": "^3.0||^4.0||^5.0",
+        "php": "^7.3",
+        "symfony/property-access": "^3.4|^4.4|^5.1",
         "thecodingmachine/safe": "^1.0"
     },
     "require-dev": {
         "bamarni/composer-bin-plugin": "^1.4",
         "roave/security-advisories": "dev-master",
-        "sensiolabs/security-checker": "^6.0",
-        "symfony/var-dumper": "^3.0||^4.0||^5.0"
+        "symfony/var-dumper": "^3.4|^4.4|^5.1"
     },
     "config": {
         "sort-packages": true
     },
     "autoload": {
         "psr-4": {
-            "SHQ\\Component\\ArrayWriter\\": "src"
+            "SerendipityHQ\\Component\\ArrayWriter\\": "src"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "SHQ\\Component\\ArrayWriter\\Tests\\": "tests"
+            "SerendipityHQ\\Component\\ArrayWriter\\Tests\\": "tests"
         }
     },
     "scripts": {
