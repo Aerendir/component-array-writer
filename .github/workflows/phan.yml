@@ -34,6 +34,7 @@ jobs:
               run: |
                   composer update ${{ matrix.composer-flags }} --no-interaction --no-suggest --no-scripts
                   composer bin phan update
+                  composer bin phpunit update
 
             - name: Run Phan
               run: |

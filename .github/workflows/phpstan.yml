@@ -34,6 +34,7 @@ jobs:
               run: |
                   composer update ${{ matrix.composer-flags }} --no-interaction --no-suggest --no-scripts
                   composer bin phpstan update
+                  composer phpunit update
 
             - name: Run PHPStan
               run: |
