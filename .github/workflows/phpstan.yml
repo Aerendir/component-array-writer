@@ -30,11 +30,15 @@ jobs:
                   composer req symfony/flex --no-scripts
                   composer config extra.symfony.require "${{ matrix.symfony }}"
 
+            - name: Remove Rector
+              run: |
+                  composer bin phpstan rem rector/rector --dev
+
             - name: Install Composer deps
               run: |
                   composer update ${{ matrix.composer-flags }} --no-interaction --no-suggest --no-scripts
                   composer bin phpstan update
-                  composer phpunit update
+                  composer bin phpunit update
 
             - name: Run PHPStan
               run: |
