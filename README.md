@@ -70,7 +70,7 @@
 
 For details about each method, please, read the comments in the code: they are really simple to be read, trust me!
 
-## Install Serendipity HQ Text Matrix via Composer
+## Install Serendipity HQ Array Writer via Composer
 
     $ composer require serendipity_hq/component-array-writer
 
