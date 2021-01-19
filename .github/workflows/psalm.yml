@@ -29,7 +29,6 @@ jobs:
                   composer req symfony/flex  --no-scripts
                   composer config extra.symfony.require "${{ matrix.symfony }}"
 
-
             - name: Remove Rector
               run: |
                   composer rem rector/rector --dev
