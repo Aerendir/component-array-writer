@@ -31,8 +31,7 @@ jobs:
 
             - name: Remove Rector
               run: |
-                  composer rem rector/rector thecodingmachine/phpstan-safe-rule --dev
-                  composer rem thecodingmachine/safe
+                  composer rem rector/rector --dev
 
             - name: Install Composer deps
               run: |
