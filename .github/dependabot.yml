@@ -39,6 +39,7 @@ updates:
           - "Dependabot"
           - "[Type] Dependencies"
           - "[Lang] GitHub Actions"
+          - "[Status] Automerge"
       open-pull-requests-limit: 1000
     # PHP CS Fixer through Bamarni
     - package-ecosystem: "composer"
