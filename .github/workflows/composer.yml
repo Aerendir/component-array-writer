@@ -30,7 +30,7 @@ jobs:
             -   name: Cache Composer's dependencies
                 uses: actions/cache@v2
                 with:
-                    path: ${{ env.COMPOSER_CACHE_DIR }}
+                    path: ${{ steps.composer-cache.outputs.dir }}
                     key: php-composer-dependencies-cache
 
             -   name: Install Composer deps
