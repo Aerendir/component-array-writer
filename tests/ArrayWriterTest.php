@@ -52,6 +52,31 @@ final class ArrayWriterTest extends TestCase
         self::assertSame($testArray, $this->resource->getValue($testArray, ''));
     }
 
+    public function testGetValueAndForget(): void
+    {
+        $testArray = [
+            'level1' => [
+                'value 1', 'value 2', 'value 3',
+            ],
+            'level2' => [
+                'value 1', 'value 2', 'value 3',
+            ],
+        ];
+
+        $expectedTestArray = [
+            'level2' => [
+                'value 1', 'value 2', 'value 3',
+            ],
+        ];
+
+        $expectedReturnedArray = ['value 1', 'value 2', 'value 3'];
+
+        $returnedArray = $this->resource->getValueAndForget($testArray, '[level1]');
+
+        self::assertSame($expectedReturnedArray, $returnedArray);
+        self::assertSame($expectedTestArray, $testArray);
+    }
+
     public function testIsNode(): void
     {
         $testArray = [
