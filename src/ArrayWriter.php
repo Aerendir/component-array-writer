@@ -85,8 +85,7 @@ final class ArrayWriter
     public function getValueByPartialKey(array $array, string $searchingKey)
     {
         /**
-         * @var int|string $key
-         * @var mixed      $value
+         * @var mixed $value
          */
         foreach ($array as $key => $value) {
             if (false !== \stripos((string) $key, $searchingKey)) {
