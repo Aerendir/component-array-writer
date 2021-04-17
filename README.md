@@ -48,6 +48,7 @@
 ## Available methods
 
 - `getValue()`
+- `getValueAndForget()`
 - `getValueByPartialKey()`
 - `isNode()`
 - `isReadable()`

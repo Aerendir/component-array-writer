@@ -75,6 +75,35 @@ final class ArrayWriter
     }
 
     /**
+     * Get the value of the given path from the array graph and removes it from the array.
+     *
+     * @param array<mixed, mixed> $array
+     * @param string              $path
+     *
+     * @throws AccessException
+     * @throws UnexpectedTypeException
+     * @throws InvalidArgumentException
+     *
+     * @return mixed
+     */
+    public function getValueAndForget(array &$array, string $path)
+    {
+        // If the $path value is empty, return the entire array graph
+        if ($this->isRoot($path)) {
+            return $array;
+        }
+
+        // If $path doesn't exist returns null. It is not possible to distinghuish between a path that exists and has a
+        // null value and a path that doesn't exist at all.
+        $value = $this->pa->getValue($array, $path);
+
+        // Remove the array from the source array
+        $this->rm($array, $path);
+
+        return $value;
+    }
+
+    /**
      * This just searches in the first level, not in deeper ones.
      *
      * @param array<int|string, mixed> $array
@@ -85,8 +114,7 @@ final class ArrayWriter
     public function getValueByPartialKey(array $array, string $searchingKey)
     {
         /**
-         * @var int|string $key
-         * @var mixed      $value
+         * @var mixed $value
          */
         foreach ($array as $key => $value) {
             if (false !== \stripos((string) $key, $searchingKey)) {
