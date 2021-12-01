@@ -488,6 +488,14 @@ final class ArrayWriter
         // Remove the key to move one level up
         $this->rm($array, $path);
 
+        /*
+         * Fails on
+         * - phpstan (ubuntu-latest, 8.0, --prefer-stable --prefer-lowest, ~3.4)
+         * - phpstan (ubuntu-latest, 7.3, --prefer-stable --prefer-lowest, ~3.4)
+         * - phpstan (ubuntu-latest, 7.4, --prefer-stable --prefer-lowest, ~3.4)
+         *
+         * @phpstan-ignore-next-line
+         */
         $parentPath = $pathObject->getParent() ?? '[]';
 
         // Get the values of the up level
