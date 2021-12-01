@@ -5,23 +5,13 @@
       <code>$parentPath</code>
       <code>$parentPath</code>
     </ImplicitToStringCast>
-    <MixedAssignment occurrences="11">
-      <code>$array</code>
-      <code>$currentLevel</code>
-      <code>$currentValue[$propertyForNewValue]</code>
-      <code>$currentValue[]</code>
-      <code>$fromValue</code>
-      <code>$inValue</code>
-      <code>$parentValues</code>
-      <code>$value</code>
-      <code>$value</code>
-      <code>$value</code>
-      <code>$values</code>
-    </MixedAssignment>
     <ReferenceConstraintViolation occurrences="3">
       <code>$array</code>
       <code>$array</code>
       <code>return;</code>
     </ReferenceConstraintViolation>
+    <UnnecessaryVarAnnotation occurrences="1">
+      <code>string</code>
+    </UnnecessaryVarAnnotation>
   </file>
 </files>
