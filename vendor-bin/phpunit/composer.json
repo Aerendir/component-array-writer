@@ -3,6 +3,6 @@
         "phpunit/phpunit": "9.5.4",
         "symfony/phpunit-bridge": "6.0.0",
         "vimeo/psalm": "4.7.0",
-        "psalm/plugin-phpunit": "0.15.1"
+        "psalm/plugin-phpunit": "0.16.1"
     }
 }
