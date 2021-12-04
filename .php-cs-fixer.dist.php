@@ -74,5 +74,3 @@ return $config
         'single_line_comment_style' => ['comment_types' => ['hash']],
         'strict_comparison' => true
     ]);
-
-return $config;
