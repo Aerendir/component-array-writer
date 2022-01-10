@@ -1,0 +1,12 @@
+parameters:
+	ignoreErrors:
+		-
+			message: "#^Cannot access offset string on mixed\\.$#"
+			count: 1
+			path: src/ArrayWriter.php
+
+		-
+			message: "#^Cannot access offset string\\|null on mixed\\.$#"
+			count: 1
+			path: src/ArrayWriter.php
+
