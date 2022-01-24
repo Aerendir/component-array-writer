@@ -54,7 +54,6 @@ final class ArrayWriter
      * Get the value of the given path from the array graph.
      *
      * @param array<mixed, mixed> $array
-     * @param string              $path
      *
      * @throws AccessException
      * @throws UnexpectedTypeException
@@ -78,7 +77,6 @@ final class ArrayWriter
      * Get the value of the given path from the array graph and removes it from the array.
      *
      * @param array<mixed, mixed> $array
-     * @param string              $path
      *
      * @throws AccessException
      * @throws UnexpectedTypeException
@@ -107,7 +105,6 @@ final class ArrayWriter
      * This just searches in the first level, not in deeper ones.
      *
      * @param array<int|string, mixed> $array
-     * @param string                   $searchingKey
      *
      * @return mixed
      */
@@ -129,13 +126,10 @@ final class ArrayWriter
      * Checks if a given path is a node or not.
      *
      * @param array<mixed, mixed> $array
-     * @param string              $path
      *
      * @throws AccessException
      * @throws UnexpectedTypeException
      * @throws InvalidArgumentException
-     *
-     * @return bool
      */
     public function isNode(array $array, string $path): bool
     {
@@ -146,9 +140,6 @@ final class ArrayWriter
      * Checks if a path exists in the given array.
      *
      * @param array<int|string, mixed> $array
-     * @param string                   $path
-     *
-     * @return bool
      */
     public function isReadable(array $array, string $path): bool
     {
@@ -159,11 +150,6 @@ final class ArrayWriter
         }
     }
 
-    /**
-     * @param string $path
-     *
-     * @return bool
-     */
     public function isRoot(string $path): bool
     {
         return '[]' === $path || '' === $path || '.' === $path;
@@ -173,13 +159,10 @@ final class ArrayWriter
      * Returns true if the $path is null, false instead.
      *
      * @param array<mixed, mixed> $array
-     * @param string              $path
      *
      * @throws AccessException
      * @throws UnexpectedTypeException
      * @throws InvalidArgumentException
-     *
-     * @return bool
      */
     public function isWritable(array $array, string $path): bool
     {
@@ -200,8 +183,6 @@ final class ArrayWriter
     /**
      * @param array<int|string, mixed> $array  The array in which the the key is searched for
      * @param string                   $needle The key to search for
-     *
-     * @return bool
      */
     public function keyExistsNested(array $array, string $needle): bool
     {
@@ -351,7 +332,6 @@ final class ArrayWriter
      * Edits the value at the given path.
      *
      * @param array<mixed, mixed> $array
-     * @param string              $path
      * @param mixed               $value
      *
      * @throws AccessException          If the path to edit is not readable
@@ -377,8 +357,6 @@ final class ArrayWriter
      * Merges $from values into $in path.
      *
      * @param array<int|string, mixed> $array
-     * @param string                   $from
-     * @param string                   $in
      *
      * @throws StringsException
      * @throws AccessException
@@ -512,11 +490,9 @@ final class ArrayWriter
      * @see http://stackoverflow.com/a/16698855/1399706
      *
      * @param array<int|string, mixed> $array
-     * @param string                   $path
      *
      * @throws StringsException
      * @throws \InvalidArgumentException
-     *
      * @psalm-suppress PossiblyNullArrayOffset
      */
     public function rm(array &$array, string $path): void
@@ -592,8 +568,6 @@ final class ArrayWriter
      *
      * @param int|string $string Can be a position or an object name
      *
-     * @return string
-     *
      * @psalm-suppress PossiblyInvalidOperand
      */
     public static function pathize($string): string
@@ -603,10 +577,6 @@ final class ArrayWriter
 
     /**
      * Removes "[" and "]" from path.
-     *
-     * @param string $path
-     *
-     * @return string
      */
     public static function unpathize(string $path): string
     {
