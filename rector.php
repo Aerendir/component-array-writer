@@ -23,8 +23,8 @@ return static function (ContainerConfigurator $containerConfigurator) : void {
     $parameters->set(Option::PATHS, [__DIR__ . '/src', __DIR__ . '/tests']);
     $parameters->set(Option::BOOTSTRAP_FILES, [__DIR__ . '/vendor-bin/phpunit/vendor/autoload.php']);
 
-    $containerConfigurator->import(SerendipityHQ::SHQ_SYMFONY_APP);
+    $containerConfigurator->import(SerendipityHQ::SHQ_LIBRARY);
 
-    $toSkip = SerendipityHQ::buildToSkip(SerendipityHQ::SHQ_SYMFONY_APP_SKIP);
+    $toSkip = SerendipityHQ::buildToSkip(SerendipityHQ::SHQ_LIBRARY_SKIP);
     $parameters->set(Option::SKIP, $toSkip);
 };
