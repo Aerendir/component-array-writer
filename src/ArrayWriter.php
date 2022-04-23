@@ -36,8 +36,8 @@ use Symfony\Component\PropertyAccess\PropertyPathInterface;
  */
 final class ArrayWriter
 {
-    /** @var PropertyAccessorInterface $pa The PropertyAccessor used to manipulate the array */
-    private $pa;
+    /** The PropertyAccessor used to manipulate the array */
+    private PropertyAccessorInterface $pa;
 
     /**
      * Builds an instance of PropertyAccessor.
