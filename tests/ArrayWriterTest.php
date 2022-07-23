@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 /*
  * This file is part of the Serendipity HQ Array Writer Component.
  *
@@ -22,9 +24,6 @@ final class ArrayWriterTest extends TestCase
 {
     private ArrayWriter $resource;
 
-    /**
-     * {@inheritdoc}
-     */
     protected function setUp(): void
     {
         $this->resource = new ArrayWriter();
