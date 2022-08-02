@@ -10,3 +10,38 @@ parameters:
 			count: 1
 			path: src/ArrayWriter.php
 
+		-
+			message: "#^Method SerendipityHQ\\\\Component\\\\ArrayWriter\\\\ArrayWriter\\:\\:edit\\(\\) has parameter \\$value with no type specified\\.$#"
+			count: 1
+			path: src/ArrayWriter.php
+
+		-
+			message: "#^Method SerendipityHQ\\\\Component\\\\ArrayWriter\\\\ArrayWriter\\:\\:forceArray\\(\\) has parameter \\$value with no type specified\\.$#"
+			count: 1
+			path: src/ArrayWriter.php
+
+		-
+			message: "#^Method SerendipityHQ\\\\Component\\\\ArrayWriter\\\\ArrayWriter\\:\\:getValue\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: src/ArrayWriter.php
+
+		-
+			message: "#^Method SerendipityHQ\\\\Component\\\\ArrayWriter\\\\ArrayWriter\\:\\:getValueAndForget\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: src/ArrayWriter.php
+
+		-
+			message: "#^Method SerendipityHQ\\\\Component\\\\ArrayWriter\\\\ArrayWriter\\:\\:getValueByPartialKey\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: src/ArrayWriter.php
+
+		-
+			message: "#^Parameter \\#2 \\$path of method SerendipityHQ\\\\Component\\\\ArrayWriter\\\\ArrayWriter\\:\\:edit\\(\\) expects string, string\\|Symfony\\\\Component\\\\PropertyAccess\\\\PropertyPathInterface given\\.$#"
+			count: 1
+			path: src/ArrayWriter.php
+
+		-
+			message: "#^Parameter \\#2 \\$path of method SerendipityHQ\\\\Component\\\\ArrayWriter\\\\ArrayWriter\\:\\:getValue\\(\\) expects string, string\\|Symfony\\\\Component\\\\PropertyAccess\\\\PropertyPathInterface given\\.$#"
+			count: 1
+			path: src/ArrayWriter.php
+

@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 /*
  * This file is part of the Serendipity HQ Array Writer Component.
  *
@@ -20,12 +22,8 @@ use Symfony\Component\PropertyAccess\Exception\AccessException;
  */
 final class ArrayWriterTest extends TestCase
 {
-    /** @var ArrayWriter $resource */
-    private $resource;
+    private ArrayWriter $resource;
 
-    /**
-     * {@inheritdoc}
-     */
     protected function setUp(): void
     {
         $this->resource = new ArrayWriter();

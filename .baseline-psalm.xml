@@ -1,10 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<files psalm-version="4.18.1@dda05fa913f4dc6eb3386f2f7ce5a45d37a71bcb">
+<files psalm-version="4.24.0@06dd975cb55d36af80f242561738f16c5f58264f">
   <file src="src/ArrayWriter.php">
-    <ImplicitToStringCast occurrences="2">
+    <MissingParamType occurrences="2">
+      <code>$value</code>
+      <code>$value</code>
+    </MissingParamType>
+    <MissingReturnType occurrences="3">
+      <code>getValue</code>
+      <code>getValueAndForget</code>
+      <code>getValueByPartialKey</code>
+    </MissingReturnType>
+    <PossiblyInvalidArgument occurrences="2">
       <code>$parentPath</code>
       <code>$parentPath</code>
-    </ImplicitToStringCast>
+    </PossiblyInvalidArgument>
     <ReferenceConstraintViolation occurrences="3">
       <code>$array</code>
       <code>$array</code>
@@ -17,9 +26,6 @@
       <code>$this-&gt;pa-&gt;getValue($array, $path)</code>
       <code>$this-&gt;pa-&gt;getValue($array, $path)</code>
     </ReservedWord>
-    <UnnecessaryVarAnnotation occurrences="1">
-      <code>string</code>
-    </UnnecessaryVarAnnotation>
   </file>
   <file src="tests/ArrayWriterTest.php">
     <TypeDoesNotContainType occurrences="2">
