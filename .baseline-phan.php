@@ -10,12 +10,14 @@
 return [
     // # Issue statistics:
     // PhanUndeclaredStaticMethod : 25+ occurrences
+    // PhanDeprecatedFunction : 4 occurrences
     // PhanUndeclaredMethod : 4 occurrences
     // PhanRedefinedExtendedClass : 1 occurrence
     // PhanUnreferencedProtectedMethod : 1 occurrence
 
     // Currently, file_suppressions and directory_suppressions are the only supported suppressions
     'file_suppressions' => [
+        'src/ArrayWriter.php' => ['PhanDeprecatedFunction'],
         'tests/ArrayWriterTest.php' => ['PhanRedefinedExtendedClass', 'PhanUndeclaredMethod', 'PhanUndeclaredStaticMethod', 'PhanUnreferencedProtectedMethod'],
     ],
     // 'directory_suppressions' => ['src/directory_name' => ['PhanIssueName1', 'PhanIssueName2']] can be manually added if needed.

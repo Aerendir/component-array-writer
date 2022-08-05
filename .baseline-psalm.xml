@@ -1,6 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<files psalm-version="4.24.0@06dd975cb55d36af80f242561738f16c5f58264f">
+<files psalm-version="4.26.0@6998fabb2bf528b65777bf9941920888d23c03ac">
   <file src="src/ArrayWriter.php">
+    <DeprecatedFunction occurrences="4">
+      <code>sprintf('The $from path "%s" isn\'t readable.', $from)</code>
+      <code>sprintf('The $to path "%s" isn\'t writable as it already has a value.', $to)</code>
+      <code>sprintf('The path "%s" doesn\'t contain any node.', $path)</code>
+      <code>sprintf('The path "%s" you are trying to edit isn\'t readable and so cannot be edited.', $path)</code>
+    </DeprecatedFunction>
     <MissingParamType occurrences="2">
       <code>$value</code>
       <code>$value</code>
