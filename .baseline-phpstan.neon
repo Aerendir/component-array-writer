@@ -45,3 +45,13 @@ parameters:
 			count: 1
 			path: src/ArrayWriter.php
 
+		-
+			message: "#^Call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertSame\\(\\) with array\\{level1\\: array\\{'value 1', 'value 2', 'value 3'\\}, level2\\: array\\{'value 1', 'value 2', 'value 3'\\}\\} and object will always evaluate to false\\.$#"
+			count: 1
+			path: tests/ArrayWriterTest.php
+
+		-
+			message: "#^Call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertSame\\(\\) with array\\{level1\\: array\\{'value 1\\.1', 'value 1\\.2', 'value 1\\.3'\\}, level2\\: array\\{key1\\: 'value 2\\.1', 0\\: 'value 2\\.2', 1\\: 'value 2\\.3'\\}, key1\\: 'value 2\\.1', 0\\: 'value 2\\.2', 1\\: 'value 2\\.3'\\} and object will always evaluate to false\\.$#"
+			count: 1
+			path: tests/ArrayWriterTest.php
+
