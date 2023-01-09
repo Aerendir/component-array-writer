@@ -215,7 +215,7 @@ final class ArrayWriterTest extends TestCase
             'level2' => [
                 'key1' => 'value 2.1', 'value 2.2', 'value 2.3',
             ],
-            'key1' => 'value 2.1',
+            'key1'   => 'value 2.1',
             'value 2.2',
             'value 2.3',
         ];
@@ -325,7 +325,7 @@ final class ArrayWriterTest extends TestCase
             'level1' => [
                 'value 1.1', 'value 1.2', 'value 1.3',
             ],
-            'key1' => 'value 2.1',
+            'key1'   => 'value 2.1',
             'value 2.2',
             'value 2.3',
         ];
@@ -381,7 +381,7 @@ final class ArrayWriterTest extends TestCase
             'level1' => [
                 'value 1.1', 'value 1.2', 'value 1.3',
             ],
-            'key1' => 'value 2.1',
+            'key1'   => 'value 2.1',
             'value 2.2',
             'value 2.3',
         ];
@@ -433,7 +433,7 @@ final class ArrayWriterTest extends TestCase
             'level1' => [
                 'value 1.1', 'value 1.2', 'value 1.3',
             ],
-            'key1' => 'value 2.1',
+            'key1'   => 'value 2.1',
             'value 2.2',
             'value 2.3',
         ];
