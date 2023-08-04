@@ -1,34 +1,33 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<files psalm-version="4.24.0@06dd975cb55d36af80f242561738f16c5f58264f">
+<files psalm-version="5.14.1@b9d355e0829c397b9b3b47d0c0ed042a8a70284d">
   <file src="src/ArrayWriter.php">
-    <MissingParamType occurrences="2">
+    <DeprecatedFunction>
+      <code><![CDATA[sprintf('The $from path "%s" isn\'t readable.', $from)]]></code>
+      <code><![CDATA[sprintf('The $to path "%s" isn\'t writable as it already has a value.', $to)]]></code>
+      <code><![CDATA[sprintf('The path "%s" doesn\'t contain any node.', $path)]]></code>
+      <code><![CDATA[sprintf('The path "%s" you are trying to edit isn\'t readable and so cannot be edited.', $path)]]></code>
+    </DeprecatedFunction>
+    <MissingParamType>
       <code>$value</code>
       <code>$value</code>
     </MissingParamType>
-    <MissingReturnType occurrences="3">
+    <MissingReturnType>
       <code>getValue</code>
       <code>getValueAndForget</code>
       <code>getValueByPartialKey</code>
     </MissingReturnType>
-    <PossiblyInvalidArgument occurrences="2">
+    <PossiblyInvalidArgument>
       <code>$parentPath</code>
       <code>$parentPath</code>
     </PossiblyInvalidArgument>
-    <ReferenceConstraintViolation occurrences="3">
+    <ReferenceConstraintViolation>
       <code>$array</code>
       <code>$array</code>
       <code>return;</code>
     </ReferenceConstraintViolation>
-    <ReservedWord occurrences="5">
-      <code>$this-&gt;pa-&gt;getValue($array, $path)</code>
-      <code>$this-&gt;pa-&gt;getValue($array, $path)</code>
-      <code>$this-&gt;pa-&gt;getValue($array, $path)</code>
-      <code>$this-&gt;pa-&gt;getValue($array, $path)</code>
-      <code>$this-&gt;pa-&gt;getValue($array, $path)</code>
-    </ReservedWord>
   </file>
   <file src="tests/ArrayWriterTest.php">
-    <TypeDoesNotContainType occurrences="2">
+    <TypeDoesNotContainType>
       <code>assertSame</code>
       <code>assertSame</code>
     </TypeDoesNotContainType>
