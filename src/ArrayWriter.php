@@ -21,8 +21,6 @@ use Symfony\Component\PropertyAccess\PropertyPath;
 use Symfony\Component\PropertyAccess\PropertyPathBuilder;
 use Symfony\Component\PropertyAccess\PropertyPathInterface;
 
-use function Safe\sprintf;
-
 /**
  * Manages some writing operations on the passed array.
  *
@@ -31,7 +29,7 @@ use function Safe\sprintf;
  * - mv: moves a value to another path
  * - rm: removes a value from the given path
  *
- * @see \SHQ\Component\ArrayWriter\Tests\ArrayWriterTest
+ * @see \SerendipityHQ\Component\ArrayWriter\Tests\ArrayWriterTest
  */
 final class ArrayWriter
 {
@@ -51,8 +49,6 @@ final class ArrayWriter
 
     /**
      * Get the value of the given path from the array graph.
-     *
-     * @param array<mixed, mixed> $array
      */
     public function getValue(array $array, string $path)
     {
@@ -68,8 +64,6 @@ final class ArrayWriter
 
     /**
      * Get the value of the given path from the array graph and removes it from the array.
-     *
-     * @param array<mixed, mixed> $array
      */
     public function getValueAndForget(array &$array, string $path)
     {
@@ -95,9 +89,6 @@ final class ArrayWriter
      */
     public function getValueByPartialKey(array $array, string $searchingKey)
     {
-        /**
-         * @var mixed $value
-         */
         foreach ($array as $key => $value) {
             if (false !== \stripos((string) $key, $searchingKey)) {
                 return $value;
@@ -109,8 +100,6 @@ final class ArrayWriter
 
     /**
      * Checks if a given path is a node or not.
-     *
-     * @param array<mixed, mixed> $array
      */
     public function isNode(array $array, string $path): bool
     {
@@ -138,8 +127,6 @@ final class ArrayWriter
 
     /**
      * Returns true if the $path is null, false instead.
-     *
-     * @param array<mixed, mixed> $array
      */
     public function isWritable(array $array, string $path): bool
     {
@@ -202,11 +189,10 @@ final class ArrayWriter
      *
      * If the key doesn't exist, the method simply adds it.
      *
-     * @param array<mixed, mixed> $array               Passed by reference
-     * @param string              $toPath              The location where to add the value taken $fromPath
-     * @param mixed               $value               The value to add
-     * @param string              $propertyForNewValue The name to give to the new property
-     * @param string              $propertyForOldValue The old value is now assigned to a property: this is its property name
+     * @param string $toPath              The location where to add the value taken $fromPath
+     * @param mixed  $value               The value to add
+     * @param string $propertyForNewValue The name to give to the new property
+     * @param string $propertyForOldValue The old value is now assigned to a property: this is its property name
      */
     public function add(array &$array, string $toPath, $value, string $propertyForNewValue = '', string $propertyForOldValue = ''): void
     {
@@ -273,8 +259,6 @@ final class ArrayWriter
      * Copy a value from $from path to $to path.
      *
      * If the $to path already has a value, an AccessException is thrown.
-     *
-     * @param array<mixed, mixed> $array
      */
     public function cpSafe(array &$array, string $from, string $to): void
     {
@@ -288,10 +272,8 @@ final class ArrayWriter
 
     /**
      * Edits the value at the given path.
-     *
-     * @param array<mixed, mixed> $array
      */
-    public function edit(array &$array, string $path, $value): void
+    public function edit(array &$array, string $path, mixed $value): void
     {
         // If $path is not writable
         if ( ! $this->isRoot($path) && ! $this->pa->isReadable($array, $path)) {
@@ -325,8 +307,6 @@ final class ArrayWriter
      * Moves an element from $from path to $to path.
      *
      * If $to path already has a value, it will be overwritten.
-     *
-     * @param array<mixed, mixed> $array
      *
      * @psalm-suppress InvalidArgument
      */
@@ -454,13 +434,11 @@ final class ArrayWriter
      *             0 => 'element 0', 1 => 'element 1', 2 => 'element 2', ...
      *         ]
      *     ];
-     *
-     * @param array<mixed, mixed> $array
      */
     public function wrap(array &$array, string $path, string $wrapperName): void
     {
         // Get the value to move: if path is empty, get the full array graph
-        $value = (empty($path) || '[]' === $path) ? $array : $this->pa->getValue($array, $path);
+        $value = ('' === $path || '[]' === $path) ? $array : $this->pa->getValue($array, $path);
 
         // Remove eventual [ or ] from the $wrapperName
         $wrapperName = self::unpathize($wrapperName);
@@ -468,7 +446,7 @@ final class ArrayWriter
         $value = [$wrapperName => $value];
 
         // Set the new value: if path is empty, edit the full Array Graph, edit only the given path instead
-        if (empty($path)) {
+        if ('' === $path) {
             $array = $value;
         } else {
             $this->edit($array, $path, $value);
@@ -482,7 +460,7 @@ final class ArrayWriter
      *
      * @psalm-suppress PossiblyInvalidOperand
      */
-    public static function pathize($string): string
+    public static function pathize(string $string): string
     {
         return '[' . $string . ']';
     }
