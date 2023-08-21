@@ -476,6 +476,8 @@ final class ArrayWriter
     /**
      * Forces a value to be an array.
      *
+     * @param mixed $value
+     *
      * @return array<int|string, mixed>
      */
     public static function forceArray($value): array
