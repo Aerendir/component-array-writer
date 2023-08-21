@@ -26,11 +26,6 @@ parameters:
 			path: src/ArrayWriter.php
 
 		-
-			message: "#^Method SerendipityHQ\\\\Component\\\\ArrayWriter\\\\ArrayWriter\\:\\:forceArray\\(\\) has parameter \\$value with no type specified\\.$#"
-			count: 1
-			path: src/ArrayWriter.php
-
-		-
 			message: "#^Method SerendipityHQ\\\\Component\\\\ArrayWriter\\\\ArrayWriter\\:\\:getValue\\(\\) has no return type specified\\.$#"
 			count: 1
 			path: src/ArrayWriter.php

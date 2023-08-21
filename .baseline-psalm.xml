@@ -4,9 +4,6 @@
     <MismatchingDocblockParamType>
       <code>int|string</code>
     </MismatchingDocblockParamType>
-    <MissingParamType>
-      <code>$value</code>
-    </MissingParamType>
     <MissingReturnType>
       <code>getValue</code>
       <code>getValueAndForget</code>
