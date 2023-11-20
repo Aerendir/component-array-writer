@@ -246,7 +246,7 @@ final class ArrayWriter
         // Check if $to is the root and if it is
         if ($this->isRoot($to)) {
             // Merge the value in the passed $array
-            $array = \array_merge($array, self::forceArray($value));
+            $array = [...$array, ...self::forceArray($value)];
 
             return;
         }
@@ -298,7 +298,7 @@ final class ArrayWriter
         $this->rm($array, $from);
         $inValue   = $this->getValue($array, $in);
 
-        $merged = \array_merge(self::forceArray($inValue), self::forceArray($fromValue));
+        $merged = [...self::forceArray($inValue), ...self::forceArray($fromValue)];
 
         $this->edit($array, $in, $merged);
     }
@@ -380,7 +380,7 @@ final class ArrayWriter
         // Get the values of the up level
         $parentValues = $this->getValue($array, $parentPath);
 
-        $mergedArray = \array_merge(self::forceArray($parentValues), self::forceArray($values));
+        $mergedArray = [...self::forceArray($parentValues), ...self::forceArray($values)];
 
         $this->edit($array, $parentPath, $mergedArray);
     }
