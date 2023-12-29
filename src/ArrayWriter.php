@@ -29,7 +29,7 @@ use Symfony\Component\PropertyAccess\PropertyPathInterface;
  * - mv: moves a value to another path
  * - rm: removes a value from the given path
  *
- * @see \SerendipityHQ\Component\ArrayWriter\Tests\ArrayWriterTest
+ * @see Tests\ArrayWriterTest
  */
 final class ArrayWriter
 {
