@@ -1,14 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<files psalm-version="5.14.1@b9d355e0829c397b9b3b47d0c0ed042a8a70284d">
+<files psalm-version="5.18.0@b113f3ed0259fd6e212d87c3df80eec95a6abf19">
   <file src="src/ArrayWriter.php">
-    <DeprecatedFunction>
-      <code><![CDATA[sprintf('The $from path "%s" isn\'t readable.', $from)]]></code>
-      <code><![CDATA[sprintf('The $to path "%s" isn\'t writable as it already has a value.', $to)]]></code>
-      <code><![CDATA[sprintf('The path "%s" doesn\'t contain any node.', $path)]]></code>
-      <code><![CDATA[sprintf('The path "%s" you are trying to edit isn\'t readable and so cannot be edited.', $path)]]></code>
-    </DeprecatedFunction>
+    <MismatchingDocblockParamType>
+      <code>int|string</code>
+    </MismatchingDocblockParamType>
     <MissingParamType>
-      <code>$value</code>
       <code>$value</code>
     </MissingParamType>
     <MissingReturnType>

@@ -11,7 +11,17 @@ parameters:
 			path: src/ArrayWriter.php
 
 		-
-			message: "#^Method SerendipityHQ\\\\Component\\\\ArrayWriter\\\\ArrayWriter\\:\\:edit\\(\\) has parameter \\$value with no type specified\\.$#"
+			message: "#^Method SerendipityHQ\\\\Component\\\\ArrayWriter\\\\ArrayWriter\\:\\:add\\(\\) has parameter \\$array with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/ArrayWriter.php
+
+		-
+			message: "#^Method SerendipityHQ\\\\Component\\\\ArrayWriter\\\\ArrayWriter\\:\\:cpSafe\\(\\) has parameter \\$array with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/ArrayWriter.php
+
+		-
+			message: "#^Method SerendipityHQ\\\\Component\\\\ArrayWriter\\\\ArrayWriter\\:\\:edit\\(\\) has parameter \\$array with no value type specified in iterable type array\\.$#"
 			count: 1
 			path: src/ArrayWriter.php
 
@@ -26,12 +36,47 @@ parameters:
 			path: src/ArrayWriter.php
 
 		-
+			message: "#^Method SerendipityHQ\\\\Component\\\\ArrayWriter\\\\ArrayWriter\\:\\:getValue\\(\\) has parameter \\$array with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/ArrayWriter.php
+
+		-
 			message: "#^Method SerendipityHQ\\\\Component\\\\ArrayWriter\\\\ArrayWriter\\:\\:getValueAndForget\\(\\) has no return type specified\\.$#"
 			count: 1
 			path: src/ArrayWriter.php
 
 		-
+			message: "#^Method SerendipityHQ\\\\Component\\\\ArrayWriter\\\\ArrayWriter\\:\\:getValueAndForget\\(\\) has parameter \\$array with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/ArrayWriter.php
+
+		-
 			message: "#^Method SerendipityHQ\\\\Component\\\\ArrayWriter\\\\ArrayWriter\\:\\:getValueByPartialKey\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: src/ArrayWriter.php
+
+		-
+			message: "#^Method SerendipityHQ\\\\Component\\\\ArrayWriter\\\\ArrayWriter\\:\\:isNode\\(\\) has parameter \\$array with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/ArrayWriter.php
+
+		-
+			message: "#^Method SerendipityHQ\\\\Component\\\\ArrayWriter\\\\ArrayWriter\\:\\:isWritable\\(\\) has parameter \\$array with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/ArrayWriter.php
+
+		-
+			message: "#^Method SerendipityHQ\\\\Component\\\\ArrayWriter\\\\ArrayWriter\\:\\:mv\\(\\) has parameter \\$array with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/ArrayWriter.php
+
+		-
+			message: "#^Method SerendipityHQ\\\\Component\\\\ArrayWriter\\\\ArrayWriter\\:\\:wrap\\(\\) has parameter \\$array with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/ArrayWriter.php
+
+		-
+			message: "#^PHPDoc tag @param for parameter \\$string with type int\\|string is not subtype of native type string\\.$#"
 			count: 1
 			path: src/ArrayWriter.php
 
