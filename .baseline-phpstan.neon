@@ -1,102 +1,116 @@
 parameters:
 	ignoreErrors:
 		-
-			message: "#^Cannot access offset string on mixed\\.$#"
+			message: '#^Cannot access offset string on mixed\.$#'
+			identifier: offsetAccess.nonOffsetAccessible
 			count: 1
 			path: src/ArrayWriter.php
 
 		-
-			message: "#^Cannot access offset string\\|null on mixed\\.$#"
+			message: '#^Cannot access offset string\|null on mixed\.$#'
+			identifier: offsetAccess.nonOffsetAccessible
 			count: 1
 			path: src/ArrayWriter.php
 
 		-
-			message: "#^Method SerendipityHQ\\\\Component\\\\ArrayWriter\\\\ArrayWriter\\:\\:add\\(\\) has parameter \\$array with no value type specified in iterable type array\\.$#"
+			message: '#^Method SerendipityHQ\\Component\\ArrayWriter\\ArrayWriter\:\:add\(\) has parameter \$array with no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
 			count: 1
 			path: src/ArrayWriter.php
 
 		-
-			message: "#^Method SerendipityHQ\\\\Component\\\\ArrayWriter\\\\ArrayWriter\\:\\:cpSafe\\(\\) has parameter \\$array with no value type specified in iterable type array\\.$#"
+			message: '#^Method SerendipityHQ\\Component\\ArrayWriter\\ArrayWriter\:\:cpSafe\(\) has parameter \$array with no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
 			count: 1
 			path: src/ArrayWriter.php
 
 		-
-			message: "#^Method SerendipityHQ\\\\Component\\\\ArrayWriter\\\\ArrayWriter\\:\\:edit\\(\\) has parameter \\$array with no value type specified in iterable type array\\.$#"
+			message: '#^Method SerendipityHQ\\Component\\ArrayWriter\\ArrayWriter\:\:edit\(\) has parameter \$array with no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
 			count: 1
 			path: src/ArrayWriter.php
 
 		-
-			message: "#^Method SerendipityHQ\\\\Component\\\\ArrayWriter\\\\ArrayWriter\\:\\:forceArray\\(\\) has parameter \\$value with no type specified\\.$#"
+			message: '#^Method SerendipityHQ\\Component\\ArrayWriter\\ArrayWriter\:\:forceArray\(\) has parameter \$value with no type specified\.$#'
+			identifier: missingType.parameter
 			count: 1
 			path: src/ArrayWriter.php
 
 		-
-			message: "#^Method SerendipityHQ\\\\Component\\\\ArrayWriter\\\\ArrayWriter\\:\\:getValue\\(\\) has no return type specified\\.$#"
+			message: '#^Method SerendipityHQ\\Component\\ArrayWriter\\ArrayWriter\:\:getValue\(\) has no return type specified\.$#'
+			identifier: missingType.return
 			count: 1
 			path: src/ArrayWriter.php
 
 		-
-			message: "#^Method SerendipityHQ\\\\Component\\\\ArrayWriter\\\\ArrayWriter\\:\\:getValue\\(\\) has parameter \\$array with no value type specified in iterable type array\\.$#"
+			message: '#^Method SerendipityHQ\\Component\\ArrayWriter\\ArrayWriter\:\:getValue\(\) has parameter \$array with no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
 			count: 1
 			path: src/ArrayWriter.php
 
 		-
-			message: "#^Method SerendipityHQ\\\\Component\\\\ArrayWriter\\\\ArrayWriter\\:\\:getValueAndForget\\(\\) has no return type specified\\.$#"
+			message: '#^Method SerendipityHQ\\Component\\ArrayWriter\\ArrayWriter\:\:getValueAndForget\(\) has no return type specified\.$#'
+			identifier: missingType.return
 			count: 1
 			path: src/ArrayWriter.php
 
 		-
-			message: "#^Method SerendipityHQ\\\\Component\\\\ArrayWriter\\\\ArrayWriter\\:\\:getValueAndForget\\(\\) has parameter \\$array with no value type specified in iterable type array\\.$#"
+			message: '#^Method SerendipityHQ\\Component\\ArrayWriter\\ArrayWriter\:\:getValueAndForget\(\) has parameter \$array with no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
 			count: 1
 			path: src/ArrayWriter.php
 
 		-
-			message: "#^Method SerendipityHQ\\\\Component\\\\ArrayWriter\\\\ArrayWriter\\:\\:getValueByPartialKey\\(\\) has no return type specified\\.$#"
+			message: '#^Method SerendipityHQ\\Component\\ArrayWriter\\ArrayWriter\:\:getValueByPartialKey\(\) has no return type specified\.$#'
+			identifier: missingType.return
 			count: 1
 			path: src/ArrayWriter.php
 
 		-
-			message: "#^Method SerendipityHQ\\\\Component\\\\ArrayWriter\\\\ArrayWriter\\:\\:isNode\\(\\) has parameter \\$array with no value type specified in iterable type array\\.$#"
+			message: '#^Method SerendipityHQ\\Component\\ArrayWriter\\ArrayWriter\:\:isNode\(\) has parameter \$array with no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
 			count: 1
 			path: src/ArrayWriter.php
 
 		-
-			message: "#^Method SerendipityHQ\\\\Component\\\\ArrayWriter\\\\ArrayWriter\\:\\:isWritable\\(\\) has parameter \\$array with no value type specified in iterable type array\\.$#"
+			message: '#^Method SerendipityHQ\\Component\\ArrayWriter\\ArrayWriter\:\:isWritable\(\) has parameter \$array with no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
 			count: 1
 			path: src/ArrayWriter.php
 
 		-
-			message: "#^Method SerendipityHQ\\\\Component\\\\ArrayWriter\\\\ArrayWriter\\:\\:mv\\(\\) has parameter \\$array with no value type specified in iterable type array\\.$#"
+			message: '#^Method SerendipityHQ\\Component\\ArrayWriter\\ArrayWriter\:\:mv\(\) has parameter \$array with no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
 			count: 1
 			path: src/ArrayWriter.php
 
 		-
-			message: "#^Method SerendipityHQ\\\\Component\\\\ArrayWriter\\\\ArrayWriter\\:\\:wrap\\(\\) has parameter \\$array with no value type specified in iterable type array\\.$#"
+			message: '#^Method SerendipityHQ\\Component\\ArrayWriter\\ArrayWriter\:\:wrap\(\) has parameter \$array with no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
 			count: 1
 			path: src/ArrayWriter.php
 
 		-
-			message: "#^PHPDoc tag @param for parameter \\$string with type int\\|string is not subtype of native type string\\.$#"
+			message: '#^PHPDoc tag @param for parameter \$string with type int\|string is not subtype of native type string\.$#'
+			identifier: parameter.phpDocType
 			count: 1
 			path: src/ArrayWriter.php
 
 		-
-			message: "#^Parameter \\#2 \\$path of method SerendipityHQ\\\\Component\\\\ArrayWriter\\\\ArrayWriter\\:\\:edit\\(\\) expects string, string\\|Symfony\\\\Component\\\\PropertyAccess\\\\PropertyPathInterface given\\.$#"
+			message: '#^Parameter \#2 \$path of method SerendipityHQ\\Component\\ArrayWriter\\ArrayWriter\:\:edit\(\) expects string, string\|Symfony\\Component\\PropertyAccess\\PropertyPathInterface given\.$#'
+			identifier: argument.type
 			count: 1
 			path: src/ArrayWriter.php
 
 		-
-			message: "#^Parameter \\#2 \\$path of method SerendipityHQ\\\\Component\\\\ArrayWriter\\\\ArrayWriter\\:\\:getValue\\(\\) expects string, string\\|Symfony\\\\Component\\\\PropertyAccess\\\\PropertyPathInterface given\\.$#"
+			message: '#^Parameter \#2 \$path of method SerendipityHQ\\Component\\ArrayWriter\\ArrayWriter\:\:getValue\(\) expects string, string\|Symfony\\Component\\PropertyAccess\\PropertyPathInterface given\.$#'
+			identifier: argument.type
 			count: 1
 			path: src/ArrayWriter.php
 
 		-
-			message: "#^Call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertSame\\(\\) with array\\{level1\\: array\\{'value 1', 'value 2', 'value 3'\\}, level2\\: array\\{'value 1', 'value 2', 'value 3'\\}\\} and object will always evaluate to false\\.$#"
+			message: '#^Parameter &\$array by\-ref type of method SerendipityHQ\\Component\\ArrayWriter\\ArrayWriter\:\:edit\(\) expects array, mixed given\.$#'
+			identifier: parameterByRef.type
 			count: 1
-			path: tests/ArrayWriterTest.php
-
-		-
-			message: "#^Call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertSame\\(\\) with array\\{level1\\: array\\{'value 1\\.1', 'value 1\\.2', 'value 1\\.3'\\}, level2\\: array\\{key1\\: 'value 2\\.1', 0\\: 'value 2\\.2', 1\\: 'value 2\\.3'\\}, key1\\: 'value 2\\.1', 0\\: 'value 2\\.2', 1\\: 'value 2\\.3'\\} and object will always evaluate to false\\.$#"
-			count: 1
-			path: tests/ArrayWriterTest.php
+			path: src/ArrayWriter.php
 

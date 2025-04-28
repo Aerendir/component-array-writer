@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <psalm
-    phpVersion="8.1"
+    phpVersion="8.2"
     cacheDirectory="./var/cache/psalm"
     checkForThrowsDocblock="true"
     hideExternalErrors="true"
@@ -26,6 +26,8 @@
         <DocblockTypeContradiction errorLevel="suppress" />
         <MixedAssignment errorLevel="suppress" />
         <RedundantConditionGivenDocblockType errorLevel="suppress" />
+        <PossiblyUnusedMethod errorLevel="suppress" />
+        <ReferenceConstraintViolation errorLevel="suppress" />
     </issueHandlers>
     <plugins>
         <pluginClass class="Psalm\PhpUnitPlugin\Plugin"/>
