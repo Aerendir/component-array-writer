@@ -24,6 +24,7 @@ final class ArrayWriterTest extends TestCase
 {
     private ArrayWriter $resource;
 
+    #[\Override]
     protected function setUp(): void
     {
         $this->resource = new ArrayWriter();

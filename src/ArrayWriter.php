@@ -229,8 +229,6 @@ final class ArrayWriter
      *
      * If the $to path has already a value, it will be overwritten.
      *
-     * @param-out object $array
-     *
      * @param array<int|string, mixed> $array
      */
     public function cp(array &$array, string $from, string $to): void
@@ -252,6 +250,7 @@ final class ArrayWriter
         }
 
         // Do the copy
+        /** @phpstan-ignore parameterByRef.type */
         $this->pa->setValue($array, $to, $value);
     }
 
@@ -283,6 +282,7 @@ final class ArrayWriter
         if ($this->isRoot($path)) {
             $array = $value;
         } else {
+            /** @phpstan-ignore parameterByRef.type */
             $this->pa->setValue($array, $path, $value);
         }
     }
@@ -407,7 +407,6 @@ final class ArrayWriter
             throw new \InvalidArgumentException(sprintf('The path "%s" doesn\'t contain any node.', $path));
         }
 
-        /** @var string $node */
         foreach ($nodes->getElements() as &$node) {
             $parentLevel  = &$currentLevel;
             $currentLevel = &$currentLevel[$node];

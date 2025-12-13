@@ -13,12 +13,13 @@ return [
     // PhanUndeclaredMethod : 4 occurrences
     // PhanRedefinedExtendedClass : 1 occurrence
     // PhanTypeMismatchDeclaredParam : 1 occurrence
+    // PhanUndeclaredClassAttribute : 1 occurrence
     // PhanUnreferencedProtectedMethod : 1 occurrence
 
     // Currently, file_suppressions and directory_suppressions are the only supported suppressions
     'file_suppressions' => [
         'src/ArrayWriter.php' => ['PhanTypeMismatchDeclaredParam'],
-        'tests/ArrayWriterTest.php' => ['PhanRedefinedExtendedClass', 'PhanUndeclaredMethod', 'PhanUndeclaredStaticMethod', 'PhanUnreferencedProtectedMethod'],
+        'tests/ArrayWriterTest.php' => ['PhanRedefinedExtendedClass', 'PhanUndeclaredClassAttribute', 'PhanUndeclaredMethod', 'PhanUndeclaredStaticMethod', 'PhanUnreferencedProtectedMethod'],
     ],
     // 'directory_suppressions' => ['src/directory_name' => ['PhanIssueName1', 'PhanIssueName2']] can be manually added if needed.
     // (directory_suppressions will currently be ignored by subsequent calls to --save-baseline, but may be preserved in future Phan releases)
