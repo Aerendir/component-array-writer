@@ -69,6 +69,16 @@ stax: ## Starts, WITH XDEBUG, the containers to run TrustBack.Me (all in detache
 	$(MAKE) stop
 	XDEBUG_MODE=debug PROJECT_ROOT=`pwd` docker compose up -d
 
+sync: ## Syncs branches and dependencies.
+	git fetch
+	gt sync
+	gt s --stack --update-only
+
+stafu: ## Starts the containers to run the component (all in detached mode - no logs) and also syncs branches and dependencies.
+	${MAKE} sync
+	${MAKE} start
+	${MAKE} composer c='install'
+
 stop: ## Stops all containers for all PHP versions (using `docker compose stop`)
 	for v in $(PHP_VERSIONS); do $(MAKE) stop-v PHP_V=$$v; done
 
