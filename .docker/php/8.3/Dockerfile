@@ -1,4 +1,4 @@
-FROM php:8.3-cli as component-array-writer-83
+FROM php:8.3-cli AS component-array-writer-83
 
 # PHP extensions installer
 # https://github.com/mlocati/docker-php-extension-installer
