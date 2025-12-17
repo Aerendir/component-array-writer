@@ -63,7 +63,7 @@ mut: ## Opens the report of mutations in the browser
 
 start: ## Starts the containers to run the lib (all in detached mode - no logs). Ex.: make start 8.2
 	$(MAKE) stop
-	$(DOCKER_COMP) up -d --build
+	$(DOCKER_COMP) up -d
 
 stax: ## Starts, WITH XDEBUG, the containers to run TrustBack.Me (all in detached mode - no logs).
 	$(MAKE) stop
