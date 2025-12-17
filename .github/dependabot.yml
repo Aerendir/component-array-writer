@@ -21,6 +21,16 @@ updates:
           - "[Lang] PHP"
           - "[Status] Automerge"
       open-pull-requests-limit: 1000
+      groups:
+          symfony:
+              patterns:
+                  - "symfony/*" # Update all Symfony dependencies together
+          phpstan_and_rector:
+              patterns:
+                  - "phpstan/*"
+                  - "rector/*"
+                  - "serendipity_hq/rector*"
+                  - "thecodingmachine/phpstan-safe*"
     - package-ecosystem: "github-actions"
       target-branch: "master"
       directory: "/"
