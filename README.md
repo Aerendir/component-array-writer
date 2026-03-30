@@ -26,7 +26,6 @@
 
 ## Current Status
 
-[![Coverage](https://sonarcloud.io/api/project_badges/measure?project=Aerendir_component-array-writer&metric=coverage)](https://sonarcloud.io/dashboard?id=Aerendir_component-array-writer)
 [![Maintainability Rating](https://sonarcloud.io/api/project_badges/measure?project=Aerendir_component-array-writer&metric=sqale_rating)](https://sonarcloud.io/dashboard?id=Aerendir_component-array-writer)
 [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=Aerendir_component-array-writer&metric=alert_status)](https://sonarcloud.io/dashboard?id=Aerendir_component-array-writer)
 [![Reliability Rating](https://sonarcloud.io/api/project_badges/measure?project=Aerendir_component-array-writer&metric=reliability_rating)](https://sonarcloud.io/dashboard?id=Aerendir_component-array-writer)
@@ -34,13 +33,19 @@
 [![Technical Debt](https://sonarcloud.io/api/project_badges/measure?project=Aerendir_component-array-writer&metric=sqale_index)](https://sonarcloud.io/dashboard?id=Aerendir_component-array-writer)
 [![Vulnerabilities](https://sonarcloud.io/api/project_badges/measure?project=Aerendir_component-array-writer&metric=vulnerabilities)](https://sonarcloud.io/dashboard?id=Aerendir_component-array-writer)
 
-[![Phan](https://github.com/Aerendir/component-array-writer/workflows/Phan/badge.svg)](https://github.com/Aerendir/component-array-writer/actions?query=branch%3Adev)
 [![PHPStan](https://github.com/Aerendir/component-array-writer/workflows/PHPStan/badge.svg)](https://github.com/Aerendir/component-array-writer/actions?query=branch%3Adev)
 [![PSalm](https://github.com/Aerendir/component-array-writer/workflows/PSalm/badge.svg)](https://github.com/Aerendir/component-array-writer/actions?query=branch%3Adev)
 [![PHPUnit](https://github.com/Aerendir/component-array-writer/workflows/PHPunit/badge.svg)](https://github.com/Aerendir/component-array-writer/actions?query=branch%3Adev)
 [![Composer](https://github.com/Aerendir/component-array-writer/workflows/Composer/badge.svg)](https://github.com/Aerendir/component-array-writer/actions?query=branch%3Adev)
 [![PHP CS Fixer](https://github.com/Aerendir/component-array-writer/workflows/PHP%20CS%20Fixer/badge.svg)](https://github.com/Aerendir/component-array-writer/actions?query=branch%3Adev)
 [![Rector](https://github.com/Aerendir/component-array-writer/workflows/Rector/badge.svg)](https://github.com/Aerendir/component-array-writer/actions?query=branch%3Adev)
+
+
+[![codecov](https://codecov.io/gh/Aerendir/component-array-writer/branch/master/graph/badge.svg?token=W9FH392F73)](https://codecov.io/gh/Aerendir/component-array-writer)
+
+[![CodeCov SunBurst](https://codecov.io/gh/Aerendir/component-array-writer/branch/master/graphs/sunburst.svg)](https://codecov.io/gh/Aerendir/component-array-writer)
+[![CodeCov Tree](https://codecov.io/gh/Aerendir/component-array-writer/branch/master/graphs/tree.svg)](https://codecov.io/gh/Aerendir/component-array-writer)
+[![CodeCov I Cicle](https://codecov.io/gh/Aerendir/component-array-writer/branch/master/graphs/icicle.svg)](https://codecov.io/gh/Aerendir/component-array-writer)
 
 <hr />
 <h3 align="center">
