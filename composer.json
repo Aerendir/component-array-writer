@@ -24,7 +24,7 @@
         "phpstan/phpstan-phpunit": "2.0.18",
         "rector/rector": "2.6.1",
         "roave/security-advisories": "dev-master",
-        "serendipity_hq/rector-config": "1.1.19",
+        "serendipity_hq/rector-config": "1.1.20",
         "thecodingmachine/phpstan-safe-rule": "1.4.7"
     },
     "autoload": {
