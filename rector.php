@@ -47,9 +47,6 @@ return RectorConfig::configure()
                        Rector\Set\ValueObject\SetList::CODE_QUALITY,
                        Rector\Set\ValueObject\SetList::CODING_STYLE,
                        Rector\Set\ValueObject\SetList::TYPE_DECLARATION,
-                       Rector\Symfony\Set\SymfonySetList::SYMFONY_64,
-                       Rector\Symfony\Set\SymfonySetList::SYMFONY_74,
-                       Rector\Symfony\Set\SymfonySetList::SYMFONY_80,
                    ])
                    ->withRules([
                        Rector\DeadCode\Rector\ClassMethod\RemoveUselessParamTagRector::class,
@@ -63,4 +60,4 @@ return RectorConfig::configure()
                        Rector\Caching\ValueObject\Storage\FileCacheStorage::class
                    )
                    ->withImportNames(importNames: true, importDocBlockNames: true, importShortClasses: false)
-                   ->withComposerBased(phpunit: true);
+                   ->withComposerBased(phpunit: true, symfony: true);
