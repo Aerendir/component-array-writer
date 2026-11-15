@@ -30,7 +30,6 @@ updates:
                   - "phpstan/*"
                   - "rector/*"
                   - "serendipity_hq/rector*"
-                  - "thecodingmachine/phpstan-safe*"
     - package-ecosystem: "github-actions"
       target-branch: "master"
       directory: "/"
